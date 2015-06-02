@@ -1,0 +1,9 @@
+*~
+*.pyc
+*.yaml
+*.png
+.ropeproject
+log/
+service/*.pyc
+*~
+
