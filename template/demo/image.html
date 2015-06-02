@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--资料</title>
+    <script>
+        if(window.orientation === -90 || window.orientation === 90) {
+            document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">');
+        }
+        else {
+            document.write('<meta name="viewport" content="width=320, user-scalable=0">');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list { margin: 8px; }
+        .list li { padding: 18px 12px; }
+        .btn { padding: .625em 6em; }
+        input[type="text"] { border: none; }
+        input[name="avatar"] { opacity: 0; display:block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+        .avatar { border: 1px solid #f8f8f8; }
+    </style>
+</head>
+<body class="pt44" id="info-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/config"> < </a></i>
+        <h1>资料</h1>
+    </div>
+    <div class="ui-page ui-page-active">
+        <div class="ui-panel">
+            <ul class="list list-border bgc-white mt8 ml8 mr8 fs-16">
+                <li class="tac">
+                    <div class="relative dib banner">
+                        <form method="POST" action="/info/headimg" enctype="multipart/form-data">
+                            <input type="file" name="avatar"/>
+                            <img class="avatar dib mt12 mb12 circle" src="/static/images/blank.gif" width="64" height="64"/>
+                            <p class="tac fs-12 avatar-change">点击头像可更换</p>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+            <div class="tac mt12 pb12">
+                <button id="btn-update" class="btn btn-success radius" type="button">提交</button>
+            </div>
+        </div>
+    </div>
+    <div class="thumbBox"></div>
+    <div class="spinner"></div>
+    <script id="tpl-alert" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box fs-20">提示</span>
+            </div>
+            <div class="mt12 g6">
+                {=msg}
+            </div>
+            <div class="tac mt8">
+                <a class="fs-14 btn-close btn btn-success btn-change mt12 radius mb5" href="###"> 确定 </a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-image" type="text/template">
+        <div class="ui-panel ml12 mr12 p8 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box fs-20">提示</span>
+            </div>
+            <div class="g6 tac img-contain" style="overflow: hidden; width: 250px; height: 250px;margin: 12px auto;">
+                <img class="upload-image" style="position: relative; left: 0; top: 0;"/>
+            </div>
+            <div class="tac mt8">
+                <a class="fs-14 btn-upload btn btn-success btn-change mt12 radius mb5" href="###"> 确定 </a>
+                <a class="fs-14 btn-close btn btn-success btn-change mt12 radius mb5" href="###"> 取消</a>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+    <script src="/static/lib/crop.js"></script>
+    <script>
+        window.sex = 1;
+        place = 'guangzhou';
+        icon = '/static/images/icon_default.png';
+        username = 'zejie';
+
+        $(function() {
+            build();
+            events();
+
+            // 构建
+            function build() {
+                Lightbox.init();
+                $('.avatar').attr('src', icon);
+            }
+
+            // 事件
+            function events() {
+                $('#btn-update').on('click',function(e) {
+                    return false;
+                });
+
+                $('input[type=file]').on('change', function(e) {
+                    var file = e.target.files[0],
+                        reader = new FileReader(),
+                        base64 = '',
+                        imagefile = file.type,
+                        match = ['image/jpeg', "image/png", "image/jpg"];
+
+                    // 判断文件类型
+                    if( !((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2])) ) {
+                        API.alert('哎呀，您上传的图片不符合要求，请重新上传');
+                        return false;
+                    }
+                    if(typeof reader.readAsDataURL === 'function') {
+                        // 读取文件
+                        reader.readAsDataURL(file);
+                        reader.onload = function(e) {
+                            var base64 = this.result;
+                            $('.upload-image').attr('src', this.result);
+                            var op = {
+                                x: 0,
+                                y: 0
+                            }
+                            $('.img-contain').on('touchmove', function(e) {
+                                if(!op.x || !op.y) {
+                                    op.x = e.touches[0].clientX;
+                                    op.y = e.touches[0].clientY;
+                                }
+                                else {
+                                    var move = {
+                                        x : e.touches[0].clientX - op.x,
+                                        y : e.touches[0].clientY - op.y
+                                    };
+                                    console.log(move);
+                                    var $img = $('.upload-image'),
+                                        left = $img.offsetLeft,
+                                        right = 0;
+
+                                    $('$img').css({
+                                        'left':
+                                    })
+                                }
+                                e.preventDefault();
+                                e.stopPropagation();
+                            });
+                        };
+                    }
+                    else {
+                        alert('不支持文件操作');
+                    }
+                    Lightbox.show($('#tpl-image').tmpl({}));
+                    $('.btn-upload').on('click', function() {
+                        // $('form').get(0).submit();
+//                        var formData = new FormData();
+//                        formData.append('image', file);
+                        $.ajax({
+                            url: "/", // Url to which the request is send
+                            type: "POST",             // Type of request to be send, called as method
+                            data: {
+                                imageName: 'name',
+                                imageData: API.encode(base64)
+                            },
+                            contentType: false,       // The content type used when sending data to the server.
+                            cache: false,             // To unable request pages to be cached
+                            processData:false,        // To send DOMDocument or non processed data file it is set to false
+                            success: function(data)   // A function to be called if request succeeds
+                            {
+                                console.log(data);
+                            },
+                            fail: function(status) {
+                                console.log(status);
+                            }
+                        });
+                        console.log(API.encode(base64));
+                        return false;
+                    });
+                    $('.btn-close').off().on('click', function() {
+                        Lightbox.hide();
+                        return false;
+                    });
+                });
+            }
+        })
+    </script>
+</body>
+</html>

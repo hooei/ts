@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--兑换</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/assets/global.css"/>
+    <link rel="stylesheet" href="/static/assets/main.css"/>
+    <style>
+        .list { border-left: 5px solid #e75735; padding-bottom: 8px; }
+        .list li { padding: 12px 12px 0 12px; margin: 0;}
+        .btn { padding: .625em 3em;}
+        li.border { padding-bottom: 8px; }
+        body { height: 100%; }
+        .ui-page { height: 100%; }
+        iframe { display: block!important; width: 100%; height: 100%; overflow-x: hidden; }
+    </style>
+</head>
+<body class="bgc-gray box vertical" id="prentice-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="###" onclick="history.back(); return false;"> < </a></i>
+        <h1>兑换中心</h1>
+    </div>
+    <div class="ui-page ui-page-active flex1">
+        <a class="btn" id="click">click</a>
+        <iframe class="flex1" src="" frameborder="0" name="duiba"></iframe>
+    </div>
+    <script>
+        (function() {
+            document.querySelectorAll('.btn')[0].onclick = function() {
+                document.querySelector('iframe').src = 'http://www.duiba.com.cn/autoLogin/autologin?uid=584661&credits=0&appKey=2x1LvFvWiHu1DNapk6nKbaQgZQak&sign=3408428f19b972944b2dece0ca1600e3&timestamp=1421484229390';
+
+            };
+        }());
+    </script>
+</body>
+</html>

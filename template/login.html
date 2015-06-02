@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        var viewport = document.querySelector("meta[name=viewport]");
+        if(( /iPhone OS 8/i.test(navigator.userAgent) || /Version\/8/i.test(navigator.userAgent)) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" href="http://w.qiandeer.com/qd/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+</head>
+<body class="" id="login-page">
+    <div class="ui-page-active">
+        <div class="header pt24 tac">
+            <img class="logo dib" src="http://w.qiandeer.com/qd/static/images/login/pic_logo_slogan.png" width="173" height="45">
+            <div class="tal mt12 box cloud-box pb16">
+                <img class="db cloud" src="http://w.qiandeer.com/qd/static/images/login/pic_cloud.png" width="80" height="17">
+                <img class="db cloud" src="http://w.qiandeer.com/qd/static/images/login/pic_cloud.png" width="80" height="17">
+            </div>
+            <img class="bg dib " src="http://w.qiandeer.com/qd/static/images/login/bg.png" width="320" height="207">
+            <div class="relative tac">
+                <div class="car-box">
+                    <img class="car" src="http://w.qiandeer.com/qd/static/images/login/pic_che.png" />
+                </div>
+            </div>
+            <div class="open-box">
+                <div class="open tac hide" id="when-ios">
+                    <a class="btn btn-dark mt5 radius btn-open fs-14" href="###" data-ck="1">开启赚钱之旅<span class="fs-12" data-ck="1">(钱鹿助手未打开)</span></a>
+                    <a class="btn btn-success mt5 radius btn-install mt16 fs-14" href="###" data-ck="3">安装<span class="fs-12" data-ck="3">(钱鹿助手)</span></a>
+                </div>
+                <div class="open tac g6 mt24 pt12 hide fc-white" id="when-android">
+                    Android版本正在快速开发，敬请期待！
+                </div>
+                <div class="open tac g6 mt24 pt12 hide fc-white" id="when-jump">
+                    <a class="btn btn-success mt5 radius btn-install mt16 fs-14" href="http://w.qiandeer.com/qd/static/apk/LockScreen_QLiOS.apk">安装<span class="fs-12" data-ck="3">(钱鹿锁屏)</span></a>
+                </div>
+                <div class="open tac g6 mt24 hide" id="when-pc">
+                    请使用ios设备访问！！
+                </div>
+            </div>
+        </div>
+        <p class="g6 tac hide" style="font-size: 14px;margin: 12px 12px; color: red;">*若助手无法打开，请删除后重新安装</p>
+    </div>
+    <div class="content-rank">
+        <div class="title">累计收入榜</div>
+        <ul class="total-list box vertical"><!--累计收入榜单--></ul>
+        <div class="title red">昨日收入榜</div>
+        <ul class="yet-list">
+        </ul>
+        <div class="title green">实时提款信息</div>
+        <div class="slider">
+            <ul class="money-list"><!-- 昨日收入排行榜--></ul>
+        </div>
+    </div>
+    <div class="share-box share-box-wx hide">
+        <div class="share">
+            <div class="share-deer">
+                <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_deer.png">
+            </div>
+            <div class="share-slogen">
+                <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_font.png" alt="分享背景"/>
+            </div>
+            <div class="share-bg">
+                <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_ground.png" alt="分享背景"/>
+            </div>
+        </div>
+    </div>
+    <div class="share-box share-box-other hide">
+        <div class="share">
+            <div class="share-font">
+                <p class="share-font-first pt24 ml12">1、点击右上角菜单</p>
+                <img class="mt24 ml12 dib round" src="http://w.qiandeer.com/qd/static/images/safari.jpg" width="50" height="50">
+                <p class="pull-right mt24 ml18">2、在菜单中点击<br/><span class="ml36 mt5 dib fs-14">“用Safari打开”</span></p>
+            </div>
+            <div class="share-deer">
+                <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_deer.png">
+            </div>
+            <div class="share-bg">
+                <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_ground.png" alt="分享背景"/>
+            </div>
+        </div>
+    </div>
+    <script id="tpl-action" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">提示</span>
+                <div class="flex1 box fs-14 bpr">
+                    <a class="icon icon-close btn-close" href="###" data-ck="2">  </a>
+                </div>
+            </div>
+            <p class="ml5 mt12 fs-18 g3 tal">有＂钱鹿＂才能赚钱哦</p>
+            <p class="mt16 fs-12 g3 tal" style="color: red;">(若＂钱鹿＂无法打开，请删除后重新安装)</p>
+            <div class="tac mb12 mt16">
+                <a class="db btn btn-success btn-change radius" href="###" data-ck="3">安装并打开钱鹿</a>
+                <a class="db mt12 btn btn-success btn-change radius" href="###" data-ck="4">已安装，直接开启</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-install" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">提示</span>
+                <div class="flex1 box fs-14 bpr">
+                    <a class="icon icon-close btn-close" href="###" data-ck="2">  </a>
+                </div>
+            </div>
+            <p class="mt24 fs-18 g3 tal">返回桌面确定是否已安装了</p>
+            <p class="mt5 fs-18 g3 tal">＂<img class="mr5 top-3 relative round" src="http://w.qiandeer.com/qd/static/images/destop/icon_ios.png" width="25" height="25">钱鹿助手＂，安装</p>
+            <p class="mt8 fs-18 g3 tal">完成就可以回来开启啦</p>
+            <div class="tac mt24 mb12">
+                <a class="db mt16 btn btn-success btn-change radius lazy-open-btn btn-disabled" href="###" data-ck="4">开启</a>
+            </div>
+        </div>
+    </script>
+
+    <script id="tpl-install-progress" type="text/template">
+        <div class="panel-progress ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="bal g6">
+                <p class="fs-18"><span class="fc-oranger">“钱鹿助手”</span> 安装中...</p>
+                <div class="progress mt8">
+                    <div class="prentice"></div>
+                </div>
+            </div>
+            <div class="install-tips">
+                <ul class="unstyled">
+                    <li class="db">
+                        <p class="mt12 fs-11 ml8 mr8"><span class="fs-14 fc-oranger">钱鹿</span>是一个让您通过试用App赚钱的网页应用</p>
+                        <hr class="ml8 mr8">
+                        <p class="ml8 mr8 fs-12 mb12">
+                            正在安装的是<img class="round ml3 mr3" src="http://w.qiandeer.com/qd/static/images/destop/icon_ios.png" width="25" height="25"><span class="fc-oranger">“钱鹿助手”</span>,它能帮助您收集您在完成钱鹿任务过程中的关键信息，推送钱鹿任务信息，保障您最终获得收益。
+                        </p>
+                    </li>
+                    <li class="db">
+                        <p class="mt12 fs-11 ml8 mr8"><span class="fs-14 fc-oranger">Step1</span>&nbsp;安装完成后，回到桌面打开钱鹿助手</p>
+                        <img class="ml8 mt12 pull-left" src="http://w.qiandeer.com/qd/static/images/login/pic_qiandeer_logo.png" width="97" height="63"/>
+                        <img class="ml8 mt12" src="http://w.qiandeer.com/qd/static/images/login/pic_font_01.png" width="132" height="29"/>
+                    </li>
+                    <li>
+                        <p class="mt12 fs-11 ml8 mr8"><span class="fs-14 fc-oranger">Step2</span>&nbsp;首次打开，请对钱鹿助手添加信任</p>
+                        <img class="ml8 mt24 pull-left" src="http://w.qiandeer.com/qd/static/images/login/pic_font_02.png" width="89" height="29"/>
+                        <img class="ml8 mt12 mb3" src="http://w.qiandeer.com/qd/static/images/login/pic_trust.png" width="144" height="80" style="position: relative; left: -12px;"/>
+                    </li>
+                    <li>
+                        <div class="box mt5 fs-11 ml8 mr8">
+                            <span class="fs-14 fc-oranger">Step3</span>
+                            <p class="flex1 mt3">&nbsp;我们会将实时的新任务向小鹿们推送，不想错过的小伙伴记得接受推送消息！</p>
+                        </div>
+                        <img class="ml8 mt6" src="http://w.qiandeer.com/qd/static/images/login/pic_push_ok.png" width="132" height="76"/>
+                        <img class="mr5 mt24 pull-right" src="http://w.qiandeer.com/qd/static/images/login/pic_font_03.png" width="96" height="31"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-install-done" type="text/template">
+        <div class="panel-done ui-panel pt12 pb6 bgc-white round">
+            <div class="bal g6 tac">
+                <p class="fs-18"><span class="fc-oranger">“钱鹿助手”</span>安装完成！</p>
+            </div>
+            <hr>
+            <div class="box mt12">
+                <span class="db number">1</span>
+                <img class="db" src="http://w.qiandeer.com/qd/static/images/login/pic_qiandeer_logo.png" width="97" height="63">
+                <img class="mt8" src="http://w.qiandeer.com/qd/static/images/login/pic_font_04.png" width="118" height="30">
+            </div>
+            <hr>
+            <div class="box">
+                <span class="db number">2</span>
+                <p class="fs-14">信任他！</p>
+                <img class="db" src="http://w.qiandeer.com/qd/static/images/login/pic_trust.png" width="144" height="80">
+            </div>
+            <hr>
+            <div class="box vertical">
+                <div class="box">
+                    <span class="db number">3</span>
+                    <p class="fs-14">回到Safari，点击“开启赚钱之旅”</p>
+                </div>
+                <div class="tac mt5">
+                    <img class="dib" src="http://w.qiandeer.com/qd/static/images/login/pic_start.png" width="171" height="63">
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-install-update" type="text/template">
+        <div class="panel-update ui-panel pt12 pb12 bgc-white round">
+            <div class="box ml12 mt5">
+                <img class="db" src="http://w.qiandeer.com/qd/static/images/login/pic_qiandeer_logo.png" width="71" height="46">
+                <img class="mt3" src="http://w.qiandeer.com/qd/static/images/login/pic_font_05.png"  height="35" width="195">
+            </div>
+            <div class="tac">
+                <a class="btn btn-success mt5 radius btn-install mt12 fs-14" href="###" data-ck="3">安装</a>
+            </div>
+        </div>
+    </script>
+
+    <script id="tpl-open-tip" type="text/template">
+        <div class="panel-open ui-panel pt12 pb24 bgc-white round">
+            <div class="box ml12 mt5">
+                <img class="db" src="http://w.qiandeer.com/qd/static/images/login/pic_qiandeer_logo.png" height="46" width="71">
+                <img class="db" src="http://w.qiandeer.com/qd/static/images/login/pic_font_06.png" height="65" width="195">
+            </div>
+            <div class="tac hide">
+                <a class="btn btn-success mt5 radius btn-install mt12 fs-14" href="###" data-ck="3">安装</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-open-doing" type="text/template">
+        <div class="panel-opening ui-panel pt24 pb24 bgc-white round">
+            <div class="ml12 tac">
+                开启中<span class="dotting"></span>（大约15秒）
+            </div>
+        </div>
+    </script>
+    <script id="tpl-alert" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="g6">
+                {=msg}
+            </div>
+        </div>
+    </script>
+    <script id="tpl-total-item" type="text/template">
+        <li class="box bac bpc">
+            <img class="db ml12 mr12 circle mt12 mb12" src="{=icon}" width="40" height="40">
+            <span class="flex1 db">{=name}</span>
+            <span class="db ml8 mr12">共赚 <span class="fc-oranger fs-16">{=money}</span> 元</span>
+        </li>
+    </script>
+    <script id="tpl-yet-item" type="text/template">
+        <div class="box bac bpc flex1 vertical flex-fixed">
+            <img class="db circle mt5" src="{=icon}" width="40" height="40">
+            <span class="db nowrap fs-12 mt3">{=name}</span>
+            <span class="db ml12 mr12 nowrap fs-12 mb3"><span class="fc-oranger">{=money}</span>元</span>
+        </div>
+    </script>
+    <script id="tpl-withDraw-item" type="text/template">
+        <li class="db">
+            <div class="box fs-14">
+                <span class="db ml12 mt12 nowrap" style="width: 50px;">{=name}</span>
+                <span class="flex1 db mt12 tar mr8">{=desc}</span>
+            </div>
+            <span class="db fs-12 tar mr8 mb8 fc-gray">{=time}</span>
+        </li>
+    </script>
+    <script src="/static/dist/070-common.js"></script>
+
+    <script>
+        window.PD = {
+            ssid    : '{{ data['ssid'] }}',
+            scode   : '{% if data['scode'] %}{{ data['scode'] }}{% end %}',
+            aurl    : '{{ data['aurl'] }}',
+            cne     : '{{ data['cne'] }}',
+            version : {{ data['av'] }},
+            package : 'com.hej.sernd',
+            appUrl  : API.decode('{{ data['appUrl'] }}'),
+            totalList: [
+            	{% for r in rank['top'] %}
+            		{name: "{{r['name']}}", money: {{r['earn']}}, icon: "{{r['img']}}"},
+            	{% end %}
+            ],
+            dayList: [
+            	{% for r in rank['info'][::-1] %}
+            		{name: "{{r['name']}}", money: {{r['earn']}}, icon: "{{r['img']}}"},
+            	{% end %}
+            ],
+            withDrawList: [
+           		{% for r in rank['deal'][1:16] %}
+            		 {name: "{{r['name']}}", desc: "{{r['desc']}}", time: "{{r['time']}}"},
+            	{% end %}
+            ]
+        }
+
+//            ssid: '123',
+//            scode: '123',
+//            aurl : 'http://baidu.com',
+//            appUrl: 'https://qianzuan.91doujin.com/iosapp/qiandeer2/qiandeer21429261608.plist',
+//            version: 19,
+//            package: 'com.sgxml.ml',
+//
+//            totalList: [
+//                {name: '就反而', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: '3jif', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: '积分耳机反而', money: 2658, icon: '/static/images/destop/icon_ios.png'}
+//            ],
+//
+//            dayList: [
+//                {name: 'zejie1', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie2', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie3', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie4', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie5', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie', money: 265822, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie7', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie8', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//            ],
+//
+//            withDrawList: [
+//                {name: 'zejie', desc: '通过支付宝充值，成功提款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，成功提款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，款10元', time: '2014-10-1'},
+//            ]
+//        }
+
+        $(function() {
+            QL.Main.start('login');
+        });
+    </script>
+</body>
+</html>

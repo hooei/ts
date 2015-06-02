@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--每日抽奖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .g8 { color: #b0b0b0; }
+        .lottery-panel { position: relative; width: 268px; height: 275px; margin: 12px auto; background: url("http://w.qiandeer.com/qd/static/images/fun/lottery/bg.png") 268px 275px; background-size: 268px 275px; }
+        .lottery-prize { margin-top: 27px; }
+        .lottery-btn { position: absolute; top: 86px; left: 98px; }
+        .lottery-result { width: 268px; padding-top: 24px; padding-bottom: 20px; margin: 0 auto; background-color: #fec641; border-radius: 10px; }
+        .lottery-money { position: relative; width: 250px; height: 60px; margin: 0 auto; background: url("http://w.qiandeer.com/qd/static/images/fun/lottery/bg_money.png") 250px 60px; background-size: 250px 60px; }
+        .lottery-title { width: 10px; line-height: 1; color: #fff; padding: 6px 0 0 14px; }
+        .lottery-num { position: absolute; top: 15px; left: 50px; width: 200px; text-align: center; color: #f44743; font-size: 24px; font-weight: 700; }
+        .btn-success {  background-color: #f44743; color: #fff; -webkit-box-shadow: 0 4px 0 #aa1507; border: none; border-radius: 30px; width: 200px; }
+        .btn-success:active { position: relative; top: 2px; background-color: #f44743; -webkit-box-shadow: 0 2px 0 #aa1507; }
+        .pointer { width: 204px; height: 204px; margin-top: 26px; }
+        .fc-red { color: #f34541; }
+    </style>
+</head>
+<body class="pt44">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/home"> < </a></i>
+        <h1>每日抽奖</h1>
+    </div>
+    <div class="ui-panel ml8 mr8 pt12">
+        <div class="tac lottery-panel">
+            <!--<canvas id="pointer" class="pointer zhuan" width="408" height="408" title="每日抽奖"></canvas>-->
+            <img class="lottery-prize" src="http://w.qiandeer.com/qd/static/images/fun/lottery/prize.png" alt="" width="204" height="204"/>
+            <img class="lottery-btn" src="http://w.qiandeer.com/qd/static/images/fun/lottery/button.png" width="73" height="86">
+        </div>
+        <div class="rule g9">
+            <div class="fw-b" style="width: 250px; margin: 24px 0 0 5px; font-size: 12px;line-height: 20px;">
+                <p>活动规则：</p>
+                <p>1.用户每天只有一次抽奖机会，100%中奖。</p>
+                <p>2.若抽中实物奖品，请联系客服领取。</p>
+            </div>
+        </div>
+    </div>
+    <script id="tpl-lottery-cash" type="text/template">
+        <div class="lottery-result">
+            <div class="lottery-money">
+                <span class="lottery-title dib">现金奖</span>
+                <span class="lottery-num db pull-right">{=money}元</span>
+            </div>
+            <div class="tac mt12">
+                <a class="btn btn-success tac fs-18 g6 mt12" href="/home">请在主页查看</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-lottery-good" type="text/template">
+        <div class="lottery-result">
+            <div class="lottery-money">
+                <span class="lottery-title dib" style="font-size: 12px;">中奖商品</span>
+                <span class="lottery-num db pull-right">{=good}</span>
+            </div>
+            <div class="tac mt12">
+                <p class="tac fs-18 g3 mt16">请联系客服Q: 1609786020</p>
+                <a class="btn btn-success tac fs-18 g6 mt12" href="/home">返回首页</a>
+            </div>
+        </div>
+    </script>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var PD = {
+            time : {{ time }}
+        }
+
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+                    window.setTimeout(callback, 1000 / 60)
+            }
+        })();
+
+        $(function() {
+            build();
+            events()
+        });
+
+        function build() {
+            Lightbox.init();
+
+            QL.lottery= (function (ym) {
+
+                var lottery = (function(window, document) {
+
+                    "use strict";
+
+                    var totalDeg = 360 * 3 + 0,
+                        steps = [],
+                        prize,
+                        now = 0,
+                        a = 0.01,
+                        callback,
+                        outter, timer, running = false;
+
+                    outter = document.querySelector('.lottery-prize');
+                    // 计算
+                    function countSteps() {
+                        var t = Math.sqrt(2 * totalDeg / a);
+                        var v = a * t;
+                        for (var i = 0; i < t; i++) {
+                            steps.push((2 * v * i - a * i * i) / 2)
+                        }
+                        steps.push(totalDeg)
+                    }
+
+                    // 旋转动画
+                    function step() {
+                        outter.style.webkitTransform = 'rotate(' + steps[now++] + 'deg)';
+                        outter.style.MozTransform = 'rotate(' + steps[now++] + 'deg)';
+                        if (now < steps.length) {
+                            requestAnimFrame(step)
+                        } else {
+                            running = false;
+                            callback();
+                        }
+                    }
+
+                    return {
+                        // 提前转动
+                        prestart: function() {
+                            var i = 10;
+                            running = true;
+                            timer = setInterval(function () {
+                                i += 5;
+                                outter.style.webkitTransform = 'rotate(' + i + 'deg)';
+                                outter.style.MozTransform = 'rotate(' + i + 'deg)';
+                            }, 1);
+                        },
+                        // 最后结果
+                        start: function (deg, call) {
+                            deg = deg;
+                            callback = call|| function() {};
+                            running = true;
+                            clearInterval(timer);
+                            totalDeg = 360 * 5 + deg;
+                            steps = [];
+                            now = 0;
+                            countSteps();
+                            requestAnimFrame(step)
+                        },
+                        // 停止到某个角度
+                        stop: function(deg, call) {
+                            var call = call || function(){};
+                            running = false;
+                            outter.style.webkitTransform = 'rotate(' + deg + 'deg)';
+                            outter.style.MozTransform = 'rotate(' + deg + 'deg)';
+                            call();
+                        }
+                    };
+
+                })(window, document);
+                return lottery;
+            }(QL.lottery || {}));
+        }
+
+        var clickTime = 0;
+        // 事件
+        function events() {
+            $('.lottery-btn').on('click', function() {
+
+                if (!PD.time) {
+                    alert('你今天的抽奖机会已经用光\t\n请明天再接再励！');
+                    return false;
+                }
+
+                // 禁止多次点击
+                if (clickTime) {
+                    return false;
+                }
+                clickTime = 1;
+
+                //　提前启动
+                QL.lottery.prestart();
+
+                var prizeDeg = [180, 240, 300, 0, 120, 60];
+                // 向服务器请求
+                API.loadData('/fun/lottery', {
+                    method: 'POST',
+                    params: '',
+                    success: function(result) {
+                        if(result && !result.c) {
+                            if ( result.d.index === 1 ) {
+                                QL.lottery.start(prizeDeg[0], function() {
+                                    Lightbox.show($('#tpl-lottery-cash').tmpl({money: result.d.money}));
+                                });
+                            }
+                            else {
+                                QL.lottery.start(prizeDeg[result.d.index-1], function() {
+                                    Lightbox.show($('#tpl-lottery-good').tmpl({good: result.d.name}));
+                                });
+                            }
+                            clickTime = 0
+                            return false;
+                        }
+                        else {
+                            var msg = '';
+                            try{
+                                switch(result.c) {
+                                    case -1:
+                                        msg = '你今天的抽奖机会已经用完\t\n请明天再接再励！';
+                                        break;
+                                    default :
+                                        msg = '网络出错，请稍候重试！';
+                                        break;
+                                }
+                            }
+                            catch(e) {
+                                msg = '抽奖失败，请稍候重试！';
+                            }
+                            alert(msg);
+                            window.location.reload(true);
+                        }
+                    },
+                    error: function() {
+                        alert('网络不通畅，请稍候重试');
+                        window.location.reload(true);
+                    }
+                })
+
+            });
+        }
+    </script>
+
+</body>
+</html>

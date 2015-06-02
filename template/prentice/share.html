@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--邀请分享页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        var isandroid   = /android/i.test(navigator.userAgent),
+            isios       = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else if(isandroid || isios){
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .bgc-oranger{background-color:#e75735}.invite-box{box-sizing:border-box;margin:0 auto;width:320px}.invite-top{height:3px;background-color:#b8452a;box-sizing:border-box;-webkit-box-sizing:border-box;z-index:1;margin:0 12px;position:relative;top:0}.invite-top-circle{content:'x';line-height:9999px;z-index:2;overflow:hidden;position:absolute;display:inline-block;height:8px;width:8px;background-color:#b8452a;top:0;border:1px solid #b8452a;border-radius:50%;-webkit-border-radius:50%}.invite-top .left{left:-5px}.invite-top .right{right:-5px}.invite-panel{z-index:2;position:relative;box-sizing:border-box;border-bottom-left-radius:8px;border-bottom-right-radius:8px}.invite-text{letter-spacing:.1em}.bgc-gray{background-color:#f4f4f4}.invite-step{width:320px;margin:0 auto}.slogen{position:absolute;font-size:12px;color:#999}.slogen1{top:45px;left:180px}.slogen2{top:114px;left:90px}.slogen3{top:195px;right:80px}.slogen4{top:265px;left:120px}.slogen .num{color:#4eb7a8}.only-pc{display:none}@media screen and (min-width: 768px){html{font-size:14px}body{font-size:14px}.pt8{padding-top:16px}.pb8{padding-bottom:16px}.pt12{padding-top:24px}.pb12{padding-bottom:24px}.ml12{margin-left:24px}.mr12{margin-right:24px}.mb12{margin-bottom:24px}.pb16{padding-bottom:32px}.p24{padding-left:48px;padding-right:48px}.fs-16{font-size:24px}.invite-box{width:580px}.share-logo{width:210px;height:70px}.invite-top{height:6px;margin:0 24px}.invite-top .left{left:-10px}.invite-top .right{right:-10px}.invite-top-circle{height:16px;width:16px}.invite-url{font-size:1.4rem}.only-pc{display:block;width:960px;margin:0 auto}.title{position:relative}h3{margin:12px auto;display:inline-block;padding:0 24px;color:#e75735;font-size:30px;text-align:center;font-weight:300;position:relative;z-index:3;background-color:#f4f4f4}.line{content:"";position:absolute;display:block;width:86%;height:3px;top:50%;left:7%;background-color:#dbdbea;z-index:1}.qt-box{position:relative;width:170px;height:170px;margin:12px auto 12px}.qt-box img{margin:15px}.qt-lt{position:absolute;top:0;left:0;border-left:6px solid #e75735;border-top:6px solid #e75735;width:30px;height:30px}.qt-rb{position:absolute;right:0;bottom:0;border-right:6px solid #e75735;border-bottom:6px solid #e75735;width:30px;height:30px}.qt-img-box{display:inline-block;margin:15px;width:140px;height:140px;background-color:#fff}.qt-img{display:inline-block;margin-top:10px;width:140px;height:140px}.invite-step{width:640px;margin:0 auto}.invite-step img{width:470px;height:694px}.slogen{position:absolute;font-size:24px;color:#999}.slogen1{top:90px;left:350px}.slogen2{top:228px;left:180px}.slogen3{top:390px;right:160px}.slogen4{top:530px;left:240px}.slogen .num{color:#4eb7a8}}
+        .content-rank { margin: 0!important; border: none;}
+    </style>
+    <!--[if lt IE 9]>
+        <style>
+            html{font-size:14px}body{font-size:14px}.pt8{padding-top:16px}.pb8{padding-bottom:16px}.pt12{padding-top:24px}.pb12{padding-bottom:24px}.ml12{margin-left:24px}.mr12{margin-right:24px}.mb12{margin-bottom:24px}.pb16{padding-bottom:32px}.p24{padding-left:48px;padding-right:48px}.fs-16{font-size:24px}.invite-box{width:580px}.share-logo{width:210px;height:70px}.invite-top{height:6px;margin:0 24px}.invite-top .left{left:-10px}.invite-top .right{right:-10px}.invite-top-circle{height:16px;width:16px}.invite-url{font-size:1.4rem}.only-pc{display:block;width:960px;margin:0 auto}.title{position:relative}h3{margin:12px auto;display:inline-block;padding:0 24px;color:#e75735;font-size:30px;text-align:center;font-weight:300;position:relative;z-index:3;background-color:#f4f4f4}.line{content:"";position:absolute;display:block;width:86%;height:3px;top:50%;left:7%;background-color:#dbdbea;z-index:1}.qt-box{position:relative;width:170px;height:170px;margin:12px auto 12px}.qt-box img{margin:15px}.qt-lt{position:absolute;top:0;left:0;border-left:6px solid #e75735;border-top:6px solid #e75735;width:30px;height:30px}.qt-rb{position:absolute;right:0;bottom:0;border-right:6px solid #e75735;border-bottom:6px solid #e75735;width:30px;height:30px}.qt-img-box{display:inline-block;margin:15px;width:140px;height:140px;background-color:#fff}.qt-img{display:inline-block;margin-top:5px;margin-left:10px;width:140px;height:140px}.invite-step{width:640px;margin:0 auto}.invite-step img{width:470px;height:694px}.slogen{position:absolute;font-size:24px;color:#999}.slogen1{top:90px;left:350px}.slogen2{display:block;top:208px;left:200px}.slogen2 .num{display:block}.slogen2 span{display:block}.slogen3{top:390px;right:160px}.slogen4{top:530px;left:240px}.slogen .num{color:#4eb7a8}
+        </style>
+    <![endif]-->
+</head>
+<body class="bgc-gray" id="share-page">
+        <div class="relative pt12 pb16 bgc-oranger">
+            <div class="invite-box">
+                <div class="invite-top">
+                    <span class="invite-top-circle left"></span>
+                    <span class="invite-top-circle right"></span>
+                </div>
+                <div class="invite-panel bgc-white pt8 pb8 ml12 mr12">
+                    <div class="tac">
+                        <img class="dib share-logo" src="http://w.qiandeer.com/qd/static/images/share/share_title.png" width="105" height="35">
+                        <div class="border relative ml24 mr24 mt5 mb12"></div>
+                    </div>
+                    <div class="invite-text mt12 p24 fs-16 g8 tac">
+                        <p class="p6">好友<span class="invite-name fc-oranger"></span></p>
+                        <p class="p6 mt5">玩了钱鹿<span class="invite-time fc-oranger"></span>天了</p>
+                        <p class="p6 mt5">TA邀请您一起来玩~~</p>
+                    </div>
+                    <div class="tac mt12">
+                        <a class="btn-access btn btn-success radius p24 invite-url">下载应用，领取３元红包</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="only-pc tac">
+            <div class="title tac">
+                <div class="line"></div>
+                <h3 class="fc-oranger">Qiandeer.com</h3>
+            </div>
+            <div class="qt-box">
+                <div class="qt-lt"></div>
+                <!--<img src="http://w.qiandeer.com/qd/static/images/pc/home-qt.png" width="140" height="140">-->
+                <!--<img class="qt-img" src="http://w.qiandeer.com/qd/static/images/blank.gif" width="140" height="140">-->
+                <div class="qt-img-box">
+                    <div class="qt-img"></div>
+                </div>
+                <div class="qt-rb"></div>
+            </div>
+            <p class="fc-oranger fs-24 tac mt24 mb8">手机扫描二维码，接受邀请</p>
+        </div>
+        <div class="invite-step bgc-gray tac relative">
+            <img src="http://w.qiandeer.com/qd/static/images/share/share_bottom.png" width="235" height="347"/>
+            <p class="slogen slogen1"><span class="num">Step1：</span><span>接受好友邀请</span></p>
+            <div class="slogen slogen2 box bac">
+                <span class="num">Step2：</span>
+                <div class="flex1 box vertical bal">
+                    <span class="flex1 box">钱鹿开启赚钱之旅</span>
+                    <span class="flex1 box mt3">下载钱鹿助手．领取奖励</span>
+                </div>
+            </div>
+            <p class="slogen slogen3"><span class="num">Step3：</span>开始赚钱任务</span></p>
+            <p class="slogen slogen4"><span class="num">Step4：</span>分享给好友</span></p>
+        </div>
+        <!---->
+        <!--<div class="content-rank">-->
+            <!--<div class="title">累计收入榜</div>-->
+            <!--<ul class="total-list box vertical">&lt;!&ndash;累计收入榜单&ndash;&gt;</ul>-->
+            <!--<div class="title red">昨日收入榜</div>-->
+            <!--<ul class="yet-list">-->
+            <!--</ul>-->
+            <!--<div class="title green">实时提款信息</div>-->
+            <!--<div class="slider">-->
+                <!--<ul class="money-list">&lt;!&ndash; 昨日收入排行榜&ndash;&gt;</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!---->
+        <div class="only-pc row tac g9 pt24 pb24">
+            <p>Copyright © 2014 qiandeer Corporation All Rights Reserved</p>
+        </div>
+        <div class="share-box share-box-wx hide">
+            <div class="share">
+                <div class="share-deer">
+                    <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_deer.png">
+                </div>
+                <div class="share-slogen">
+                    <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_font.png" alt="分享背景"/>
+                </div>
+                <div class="share-bg">
+                    <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_ground.png" alt="分享背景"/>
+                </div>
+            </div>
+        </div>
+        <div class="share-box share-box-other hide">
+            <div class="share">
+                <div class="share-font">
+                    <p class="share-font-first pt24 ml12">1、点击右上角菜单</p>
+                    <img class="mt24 ml12 dib round" src="http://w.qiandeer.com/qd/static/images/safari.jpg" width="50" height="50">
+                    <p class="pull-right mt24 ml18">2、在菜单中点击<br/><span class="ml36 mt5 dib fs-14">“用Safari打开”</span></p>
+                </div>
+                <div class="share-deer">
+                    <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_deer.png">
+                </div>
+                <div class="share-bg">
+                    <img src="http://w.qiandeer.com/qd/static/images/login/pic_jump_ground.png" alt="分享背景"/>
+                </div>
+            </div>
+        </div>
+
+        <script id="tpl-total-item" type="text/template">
+            <li class="box bac bpc">
+                <img class="db ml12 mr12 circle mt12 mb12" src="{=icon}" width="40" height="40">
+                <span class="flex1 db">{=name}</span>
+                <span class="db ml12 mr12">共赚<span class="fc-oranger fs-16">{=money}</span>元</span>
+            </li>
+        </script>
+        <script id="tpl-yet-item" type="text/template">
+            <div class="box bac bpc flex1 vertical flex-fixed">
+                <img class="db circle mt5" src="{=icon}" width="40" height="40">
+                <span class="db nowrap fs-12 mt3">{=name}</span>
+                <span class="db ml12 mr12 nowrap fs-12 mb3"><span class="fc-oranger">{=money}</span>元</span>
+            </div>
+        </script>
+        <script id="tpl-withDraw-item" type="text/template">
+            <li class="db">
+                <div class="box fs-14">
+                    <span class="db ml12 mt12 nowrap" style="width: 50px;">{=name}</span>
+                    <span class="flex1 db mt12 tar mr8">{=desc}</span>
+                </div>
+                <span class="db fs-12 tar mr8 mb8 fc-gray">{=time}</span>
+            </li>
+        </script>
+
+    <script src="/static/dist/070-common-pc.js"></script>
+
+    <script>
+        (function($){
+            $.fn.tmpl = function(d) {
+            var s = $(this[0]).html().trim();
+            if ($.isArray(d)) {
+            var li = '',
+            tm = {}, i = 0, len = d.length;
+            for (; i < len; i++) {
+            tm = d[i];
+            li += s.replace(/\{\=(\w+)\}/g, function(all, match) {
+            return tm[match];
+            });
+            }
+            s = li;
+            }
+            else {
+            s = s.replace(/\{\=(\w+)\}/g, function(all, match) {
+            return d[match];
+            });
+            }
+            return $(s);
+            };
+        })($);
+    </script>
+
+    <script>
+
+        var isios8  = /Version\/8/i.test(navigator.userAgent),
+            doc     = document,
+            win     = window;
+
+        // 对ios8进行宽度设置处理
+        if(isios8) {
+            var viewport = doc.querySelector("meta[name=viewport]");
+            if (win.orientation === -90 || win.orientation === 90) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+            }
+            else {
+                viewport.setAttribute('content', 'width=320, user-scalable=0');
+            }
+
+            document.addEventListener('orientationchange', function () {
+                var orient = 1;
+                switch (win.orientation) {
+                    case 0:
+                    case 180:
+                        orient = 0;
+                        break;
+                    case -90:
+                    case 90:
+                        orient = 1;
+                        break;
+                }
+                ;
+                //document.body.setAttribute('class', orient ? 'landscape' : 'portrait');
+                var viewport = doc.querySelector("meta[name=viewport]");
+                if (orient) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+                }
+                else {
+                    viewport.setAttribute('content', 'width=320, user-scalable=0');
+                }
+            }, false);
+        }
+
+        window.PD = {
+            uid  : '{{ data['uid'] }}',
+            name : '{{ data['username'] }}',
+            time : '{{ data['days'] }}',    // 天数
+            url  : window.decodeURIComponent('{{ data['url'] }}') // 分享后的页面
+
+        };
+
+//            uid  : '1234',
+//            name : 'zeji',
+//            time : '20',    // 天数
+//            url  : 'http://www.baidu.com',  // 分享后的页面
+//            totalList: [
+//                {name: '就反而', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: '3jif', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: '积分耳机反而', money: 2658, icon: '/static/images/destop/icon_ios.png'}
+//            ],
+//
+//            dayList: [
+//                {name: 'zejie1', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie2', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie3', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie4', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie5', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie', money: 265822, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie7', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//                {name: 'zejie8', money: 2658, icon: '/static/images/destop/icon_ios.png'},
+//            ],
+//
+//            withDrawList: [
+//                {name: 'zejie', desc: '通过支付宝充值，成功提款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，成功提款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，款10元', time: '2014-10-1'},
+//                {name: 'zejie', desc: '通过支付宝充值，款10元', time: '2014-10-1'},
+//            ]
+//        };
+
+        $(function() {
+            var isandroid   = /android/i.test(navigator.userAgent),
+                isios       = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                showName    = PD.name ? PD.name + '(ID:' + PD.uid +')' : PD.uid,
+                showTime    = PD.time || 1,
+                iswx        = /MicroMessenger/i.test(navigator.userAgent),
+                iswb        = /weibo/i.test(navigator.userAgent) || /TencentMicro/i.test(navigator.userAgent) ,
+                isqq        = /QQ/i.test(navigator.userAgent),
+                issafari    = /Safari/i.test(navigator.userAgent);
+
+            $('.invite-name').html(showName);
+            $('.invite-time').html(showTime);
+
+            // 排行榜
+            // rank();
+
+            if(isios || isandroid) {
+                $('.invite-url').attr('href', PD.url || 'http://' + window.location.host + '/login');
+            }
+            else {
+                $('.invite-url').html('扫描下方二维码，领取３元红包');
+                try {
+                    document.createElement('canvas').getContext('2d');
+                    $('.qt-img').qrcode({render: "canvas", width: 120, height: 120, text: window.location.href});
+                } catch (e) {
+                    $('.qt-img').qrcode({render: "table", width: 120, height: 120, text: window.location.href});
+                }
+
+                if(/msie/i.test(navigator.userAgent)) {
+                    $('.only-pc').css({display: 'block'});
+                }
+            }
+
+            // safri自动跳转
+            if(isios && !iswx && !iswb && !isqq) {
+                window.location.href = PD.url + '&fromother=1' || 'http://' + window.location.host + '/login';
+            }
+
+            // 点击按钮
+            $('.btn-access').on('click', function() {
+                if(iswx) { // 是微信浏览器
+                    $('.share-box-wx').removeClass("hide");
+                    return false;
+                }
+                else if (iswb || isqq) { // 不是safria浏览器
+                    $('.share-box-other').removeClass("hide");
+                    return false;
+                };
+                return true;
+            });
+        });
+
+
+        // 排行版
+        function rank() {
+
+            // 保留两位小数位
+            PD.totalList.forEach(function(item) {
+                item['money'] = item['money'].toFixed(2);
+            });
+            $('#tpl-total-item').tmpl(PD.totalList);
+
+            // 总排行榜
+            $('.total-list ').html($('#tpl-total-item').tmpl(PD.totalList));
+
+            // 昨日收入排行榜
+            var len = PD.dayList.length;
+            PD.dayList.forEach(function(item, index, list) {
+                if (index % 4 === 0 && len >= index + 4) {
+                    $('.yet-list').append($('<li class="box bac bpc pt6 pb6"></li>').html($('#tpl-yet-item').tmpl(list.slice(index, index + 4))));
+                }
+            });
+
+            // 提款
+            $('.money-list').html($('#tpl-withDraw-item').tmpl(PD.withDrawList));
+            new Slider({
+                dom: document.querySelector('.slider'),
+                touch: 0,
+                auto: 1,
+                time: 5000, // 时间间隔
+                speed: 2000 // 滑动速度
+            });
+        }
+    </script>
+</body>
+</html>

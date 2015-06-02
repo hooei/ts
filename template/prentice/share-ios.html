@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--邀请分享页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        body{width:320px;margin:0 auto}.bgc-oranger{background-color:#e75735}.invite-box{box-sizing:border-box}.invite-top{height:3px;background-color:black;opacity:.2;box-sizing:border-box;-webkit-box-sizing:border-box;z-index:1;margin:0 12px;position:relative;top:0}.invite-top-circle{content:'x';line-height:9999px;z-index:2;overflow:hidden;position:absolute;display:inline-block;height:8px;width:8px;background-color:black;top:0;border:1px solid black;border-radius:50%;-webkit-border-radius:50%}.invite-top .left{left:-5px}.invite-top .right{right:-5px}.invite-panel{z-index:2;position:relative;box-sizing:border-box;border-bottom-left-radius:8px;border-bottom-right-radius:8px}
+    </style>
+</head>
+<body class="bgc-oranger" id="share-page">
+    <div class="invite-box p12 pt24">
+        <div class="invite-top">
+            <span class="invite-top-circle left"></span>
+            <span class="invite-top-circle right"></span>
+        </div>
+        <div class="invite-panel bgc-white pt12 pb12 mb12 ml12 mr12">
+            <div class="tac">
+                <img class="dib" src="http://w.qiandeer.com/qd/static/images/share/share_title.png" width="105" height="35">
+                <div class="border relative ml24 mr24 mt5 mb12"></div>
+            </div>
+            <div class="invite-text mt24 p24 fs-14 g8 mb12 tac">
+                <p class="p6"><span class="invite-name fc-oranger mr5"></span></p>
+                <p class="p6 mt12">你玩了钱鹿<span class="invite-time fc-oranger"></span>天了</p>
+                <p class="p6 mt12">是时候邀请你的好友来当徒弟了！</p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/dist/070-common.js"></script>
+
+<script>
+    window.PD = {
+        uid  : '{{ data['uid'] }}',
+        name : '{% if data['username'] %}{{ data['username'] }}{% end %}',
+        time : '{{ data['days'] }}'    // 天数
+    };
+
+    (function() {
+        var showName = PD.name ? PD.name + '(ID:' + PD.uid +')' : PD.uid,
+            showTime = PD.time || 1;
+
+        document.querySelectorAll('.invite-name')[0].innerHTML = showName;
+        document.querySelectorAll('.invite-time')[0].innerHTML = showTime;
+    }());
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿升级</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+</head>
+<body class="bgc-white" id="login-page">
+    <div class="ui-page-active">
+        <div class="mt16 ml18 fc-white">
+            <img class="logo" src="/static/images/login/logo_qianlu.png" width="60" height="45">
+        </div>
+        <div class="relative tac">
+            <img class="road" src="/static/images/login/bg_login.png" />
+            <div class="car-box">
+                <img class="car" src="/static/images/login/pic_che.png" />
+            </div>
+        </div>
+        <div class="tac hide">
+            <img class="slogen" src="/static/images/login/pic_slogan.png"/>
+        </div>
+        <div class="tac mb24">
+            <a class="btn btn-success mt24 radius" id="btn-open" href="###" data-ck="1">升级米鹿</a>
+        </div>
+        <p class="fs-14 g6 pb12 p24 hide" style="color:red;">为保证小助手运行正常，请先卸载旧版</br>再返回此页面进行升级到13.4版本</p>
+        <div class="ml12 pb12">
+            <p class="fs-16 g6">V13.4 升级说明</p>
+            <ol class="box vertical bal fs-14 g9 mb12">
+                <li class="ml24 mt8">修复了钱鹿收徒分享链接的问题</li>
+                <li class="ml24 mt3">新增限时推荐任务机制</li>
+                <li class="ml24 mt3">新增深度试玩任务机制</li>
+                <li class="ml24 mt3">优化界面加载速度</li>
+            </ol>
+        </div>
+    </div>
+    <div class="share-box hide">
+        <div class="share">
+            <div class="share-deer">
+                <img src="/static/images/login/pic_jump_deer.png">
+            </div>
+            <div class="share-slogen">
+                <img src="/static/images/login/pic_jump_font.png" alt="分享背景"/>
+            </div>
+            <div class="share-bg">
+                <img src="/static/images/login/pic_jump_ground.png" alt="分享背景"/>
+            </div>
+        </div>
+    </div>
+    <script id="tpl-action" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">提示</span>
+                <div class="flex1 box fs-14 bpr">
+                    <a class="icon icon-close btn-close" href="###" data-ck="2">  </a>
+                </div>
+            </div>
+            <p class="ml8 mt24 fs-18 g3 tal">升级米鹿，让钱赚更快速</p>
+            <div class="tac mt24 mb12">
+                <a class="db btn btn-success btn-change radius" href="###" data-ck="3">升级米鹿</a>
+                <a class="db mt16 btn btn-success btn-change radius" href="###" data-ck="4">已升级，直接开启</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-install" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">提示</span>
+                <div class="flex1 box fs-14 bpr">
+                    <a class="icon icon-close btn-close" href="###" data-ck="2">  </a>
+                </div>
+            </div>
+            <p class="mt24 fs-18 g3 tal">返回桌面确定是否已安装了</p>
+            <p class="mt5 fs-18 g3 tal">＂<img class="mr5 top-3 relative round" src="/static/images/destop/icon_ios.png" width="25" height="25">米鹿小助手＂，安装</p>
+            <p class="mt8 fs-18 g3 tal">完成就可以回来开启啦</p>
+            <div class="tac mt24 mb12">
+                <a class="db mt16 btn btn-success btn-change radius lazy-open-btn btn-disabled" href="###" data-ck="4">开启</a>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+
+    <script>
+        window.PD = {
+            ssid    : '{{ data['ssid'] }}',
+            scode   : '',
+            cne     : '',
+            aurl    : '{{ data['aurl'] }}',
+            appUrl  : API.decode('{{ data['appUrl'] }}')
+        }
+
+        $(function() {
+            QL.Main.start('update');
+        })
+    </script>
+</body>
+</html>

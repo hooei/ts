@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--新手教程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <meta name="renderer" content="webkit">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li:active { background-color: #ececec; }
+        .btn-success { padding: 0.8rem 6rem; }
+        .ui-panel { margin: 12px 8px; padding: 8px; background-color: #fff; border-radius: 5px; }
+        .video-content { position: relative; margin-top: 8px; padding-top: 56.25%; background-color: #c6c6c6; border-radius: 5px; }
+        .video-player { width: 100%; height: 100%;  }
+        .video-space { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
+    </style>
+</head>
+<body class="pt44" id="setting-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/task/teach"> < </a></i>
+        <h1>新手任务</h1>
+    </div>
+    <div class="ui-panel fs-14 g6 pb12 tac">
+        <p class="fs-18 g3 mt12 fc-oranger">钱鹿最强赚钱攻略</p>
+        <div class="video-content">
+            <div class="video-space"></div>
+        </div>
+        <div class="tac mt24 pt12 pb12">
+            <a class="btn-share btn btn-success radius fs-12" href="###">分享+0.2元</a>
+        </div>
+        <p class="mt8 fs-12">观看钱鹿官方最强攻略，轻轻松松月入斗金！</p>
+        <p class="mt3 fs-12">观看成功并<span class="fc-oranger">分享</span>，还能获取<span class="fc-oranger">+0.2元</span>新手任务奖励</p>
+
+    </div>
+    <script id="tpl-video" type="text/template">
+        <video data-status='0' id="video-player" class="video-player" webkit-playsinline preload width="320">
+            <source src="{=src}" />
+            <source src="{=src}" />
+        </video>
+    </script>
+    <script id="tpl-alert" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box fs-20">提示</span>
+            </div>
+            <div class="mt12 g6">
+                {=msg}
+            </div>
+            <div class="tac mt8">
+                <a class="fs-14 btn-close btn btn-success btn-change mt12 radius mb5" href="###"> 确定 </a>
+            </div>
+        </div>
+    </script>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var PD = {
+            src     : 'http://w.qiandeer.com/qd/dist/video/qiandeer_teach.mp4',
+            purl    : API.encode(API.decode('{{ data['share'] }}' + '&ios=1')),
+            shurl   : API.encode(API.decode('{{ data['share'] }}')),
+            uid     : API.encode('{{ data['uid'] }}'),
+        }
+
+        $(function() {
+            QL.Main.start('taskVideo');
+        })
+    </script>
+</body>
+</html>

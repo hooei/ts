@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--绑定手机</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li { padding: 18px 12px 18px 24px; }
+        .form-field { padding: .325em; border: none;}
+        .btn-warning { font-size: 12px; padding: 5px 8px; border-radius: 5px; -webkit-border-radius: 5px;}
+        .btn-upload { padding: 0.6em 6em; }
+        #get-pic { border: 1px solid #999; }
+        .tip { letter-spacing: 0.1rem; line-height: 2rem; }
+        .left { width: 80px; display: inline-block; }
+        .binding-panel { margin: 8px; background-color: #fff; border-top: 2px solid #e75735; }
+        .btn-switch { text-decoration: underline; }
+    </style>
+</head>
+<body class="pt44">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/config"> < </a></i>
+        <h1>绑定手机</h1>
+    </div>
+    <div class="ui-page">
+        <div class="p24 pt12 g9 tip hide">
+            绑定完就不怕ID丢失了，随时随地可以通过＂设置＂-＂找回＂功能找回自己的ID
+        </div>
+        <div class="msg"></div>
+        <div class="ui-panel ml8 mr8 mt12">
+            <ul class="list list-border  bgc-white">
+                <li class="box bac">
+                    <span class="left mr24">手机号</span>
+                    <input class="flex1 form-field g9 tal" type="text" name="phone"/>
+                </li>
+                <li class="box bac hide">
+                    <span class="left mr24">图像验证码</span>
+                    <input class="mr12 flex1 form-field fc-gray tal" type="text" name="pic"/>
+                    <div class="box vertical">
+                        <img id="get-pic" src="" width="74" height="40"/>
+                    </div>
+                </li>
+                <li class="box bac">
+                    <span class="left mr24">短信验证码</span>
+                    <input class="flex1 form-field fc-gray tal mr12" name="code" type="text"/>
+                    <a id="get-code" class="btn btn-warning rounded" type="button" data-loading-text="正在获取...">获取验证码</a>
+                </li>
+            </ul>
+            <div class="tac mt12 pb12">
+                <button id="upload-info" class="btn-upload btn btn-success radius" type="submit">绑定手机</button>
+            </div>
+        </div>
+    </div>
+    <div class="ui-page"><!--切换手机号码--></div>
+
+    <script id="tpl-switch" type="text/template">
+        <div class="binding-panel tac">
+            <div class="mt24 tal dib">
+                <strong class="g6 fs-12">当前绑定的手机号</strong>
+                <p class="fc-oranger fs-20">{=phone}</p>
+            </div>
+            <a class="btn-switch mt36 pt16 p8 pb8 tar db fs-12 fc-oranger" href="/phone/unlock" title="更改手机号码"> 更改绑定手机号> </a>
+        </div>
+    </div>
+    </script>
+
+    <script id="tpl-alert" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">提示</span>
+            </div>
+            <p class="ml8 mt24 fs-18 g3 tal">
+                {=msg}
+            </p>
+            <div class="tac mt24 mb12">
+                <a class="btn-close db btn btn-success btn-change radius" href="###">确定</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-image" type="text/template">
+        <div id="comfirm-box" class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac g6">
+                <span class="box fs-20">输入图像字符</span>
+            </div>
+            <div class="msg"></div>
+            <div>
+                <p>验证码</p>
+                <input type="text" name="imageCode"/>
+                <img class="image-code" src="" />
+            </div>
+            <div class="tac">
+                <a class="btn btn-success btn-change">取消</a>
+                <a class="ml12 btn btn-success btn-change">确定</a>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+
+    <script>
+        var PD = {
+            phone: '{{ data['phone'] }}'
+        }
+        $(function() {
+            QL.Main.start('phone');
+        })
+    </script>
+</body>
+</html>

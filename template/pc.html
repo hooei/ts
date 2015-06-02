@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" href="http://w.qiandeer.com/qd/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+a:hover { color: #e75735; }
+body { background-color: #f2f2fd }
+.bg-main { background-color: #e75735; position: absolute; top: 96px; height: 600px; width: 100% }
+#main { width: 980px; margin: 0 auto; position: relative; z-index: 2 }
+.logo { margin: 11px 48px }
+.banner { height: 480px }
+.banner .banner-modal { height: 505px; width: 352px; position: absolute; bottom: 4px; right: 48px }
+.banner-modal .banner-modal-bg { position: absolute; left: 0; top: 0 }
+.banner-slider { position: relative; overflow: hidden; top: 53px; left: 78px; width: 195px; height: 343px; background-color: #e75735 }
+.banner-modal li { list-style: none }
+.banner-modal ul li { float: left; height: 343px }
+.banner-modal .dots { position: relative; bottom: 20px; text-align: center }
+.banner-modal .dots li { display: inline-block; width: 6px; height: 6px; margin: 0 4px; text-indent: -999em; border: 2px solid #fff; border-radius: 6px; cursor: pointer; opacity: .4; -webkit-transition: background .5s, opacity .5s; -moz-transition: background .5s, opacity .5s; transition: background .5s, opacity .5s }
+.banner-modal .dots li.active { background: #fff; opacity: 1 }
+.title { position: relative }
+.title-url h3 { margin: 12px auto }
+h3 { margin: 36px auto; display: inline-block; padding: 0 24px; color: #e75735; font-size: 30px; text-align: center; font-weight: 300; position: relative; z-index: 3; background-color: #f2f2fd }
+.line { content: ""; position: absolute; display: block; width: 86%; height: 3px; top: 45%; left: 7%; background-color: #dbdbea; z-index: 1 }
+.line-url { top: 50% }
+.banner-slogen { margin-top: 124px; margin-left: 54px }
+.banner-qt { margin-top: 64px; margin-left: 54px; width: 200px }
+.introduce img { display: inline-block; margin: 24px auto }
+.contact { margin: 0 80px }
+.help-one { position: relative; top: 6px }
+.num { color: #e75735; font-size: 70px; font-weight: 700 }
+.help-box { margin-bottom: 360px }
+.step-one { position: absolute; left: 580px; top: 200px }
+.step-one p a { color: green; }
+.step-one .step-text { }
+.step-two { position: absolute; left: 360px; top: 350px }
+.step-two .num { position: relative; left: -10px; top: -10px }
+.step-two .mark { position: relative; top: -10px; left: 80px }
+.step-two .pic { margin-left: 140px; position: relative; top: 120px }
+.step-two .mr24 { position: relative; top: -25px; }
+.step-three { position: absolute; left: 10px; top: 515px }
+.step-three .num { position: relative; top: 30px; left: -75px; }
+.step-three .text { position: relative; top: 50px; left: -60px; text-align: left; width: 260px }
+.step-three .pic { position: relative; top: 150px; left: -80px; }
+.step-three .mark { margin: 0 36px; position: relative; top: 50px; left: -65px; }
+.step-four { position: absolute; left: 345px; top: 755px; }
+.step-four .text { margin-left: 28px; margin-right: 36px; text-align: left; width: 200px }
+.step-four .pic { position: relative; top: 100px; left: 50px; }
+.step-four .mark { position: relative; top: 0px; left: 0px; }
+.step-five { position: absolute; left: 420px; top: 1250px }
+.step-five .mark { margin-right: 16px; position: relative; top: 10px }
+.step-five .text { width: 220px; text-align: left; margin-left: 16px }
+.step-five .pic { position: relative; left: -100px; top: 24px }
+.qt-box { position: relative; width: 170px; height: 170px; margin: 12px auto 5px }
+.qt-box img { margin: 15px }
+.qt-lt { position: absolute; top: 0; left: 0; border-left: 6px solid #e75735; border-top: 6px solid #e75735; width: 30px; height: 30px }
+.qt-rb { position: absolute; right: 0; bottom: 0; border-right: 6px solid #e75735; border-bottom: 6px solid #e75735; width: 30px; height: 30px }
+    </style>
+</head>
+<body>
+    <div class="bg-main"></div>
+    <div id="main">
+        <div class="header">
+            <img class="logo" src="http://w.qiandeer.com/qd/static/images/pc/pic_logo.png" width="322" heigth="70"/>
+        </div>
+        <div class="banner relative">
+            <div class="banner-slogen">
+                <img src="http://w.qiandeer.com/qd/static/images/pc/pic_banner_01.png" width="420" height="96">
+            </div>
+            <div class="banner-qt">
+                <img src="http://w.qiandeer.com/qd/static/images/pc/home-qt.png" alt="钱鹿主页二维码" width="200" height="200"/>
+                <p class="fc-white fs-14 mt8 tac">手机扫描二维码</p>
+            </div>
+            <div class="banner-modal">
+                <img class="banner-modal-bg" src="http://w.qiandeer.com/qd/static/images/pc/pic_banner_iphone0.png" alt="" width="353" height="505"/>
+                <div class="banner-slider">
+                    <ul>
+                        <li>
+                            <img src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_screenshots_01.png" alt="" width="195" height="343"/>
+                        </li>
+                        <li>
+                            <img src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_screenshots_02.png" alt="" width="195" height="343"/>
+                        </li>
+                        <li>
+                            <img src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_screenshots_03.png" alt="" width="195" height="343"/>
+                        </li>
+                        <li>
+                            <img src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_screenshots_04.png" alt="" width="195" height="343"/>
+                        </li>
+                        <li>
+                            <img src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_screenshots_05.png" alt="" width="195" height="343"/>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="title tac">
+                <div class="line"></div>
+                <h3>产品介绍</h3>
+            </div>
+            <div class="row introduce">
+                <div class="span3 tac fs-16 g6">
+                    <img src="http://w.qiandeer.com/qd/static/images/pc/pic_introduce_01.png" alt="new" width="160" height="160"/>
+                    <p class="fc-oranger fs-26 mb8 mt24">新手礼包</p>
+                    <p class="mt12">注册红包免费领</p>
+                    <p class="">更多奖励等你拿</p>
+                </div>
+                <div class="span3 tac fs-16 g6">
+                    <img src="http://w.qiandeer.com/qd/static/images/pc/pic_introduce_02.png" alt="new" width="160" height="160"/>
+                    <p class="fc-oranger fs-26 mb8 mt24">丰厚奖励</p>
+                    <p class="mt12">任务最多，奖励最高</p>
+                    <p class="">有钱任性就是这么拽</p>
+                </div>
+                <div class="span3 tac fs-16 g6">
+                    <img src="http://w.qiandeer.com/qd/static/images/pc/pic_introduce_03.png" alt="new" width="160" height="160"/>
+                    <p class="fc-oranger fs-26 mb8 mt24">师徒系统</p>
+                    <p class="mt12">为师这就来教你</p>
+                    <p class="">如何躺着把钱赚</p>
+                </div>
+                <div class="span3 tac fs-16 g6">
+                    <img src="http://w.qiandeer.com/qd/static/images/pc/pic_introduce_04.png" alt="new" width="160" height="160"/>
+                    <p class="fc-oranger fs-26 mb8 mt24">闪电兑换</p>
+                    <p class="mt12">随时随换，操作简易</p>
+                    <p class="">闪电处理，方便快捷</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt24 tac fs-18 g6">
+            <div class="title tac">
+                <div class="line"></div>
+                <h3>联系我们</h3>
+            </div>
+            <p class="tal contact">
+                如果您在使用＂钱鹿＂的过程中遇到任何问题，请直接点击在线客服进行咨询，您也可以加入我们的官方贴吧，参与我们的鹿茸讨论，请教经验，一起组队刷副本！
+                <span class="fs-14 fc-oranger">(注：客服在线时间是周一到周日9:00-24:00)</span>
+            </p>
+            <div class="tal" style="margin: 0 auto; display: inline-block">
+                <p class="mt36"><a href="#">钱鹿官方Q群：389962418</a></p>
+                <p class="mt5"><a href="http://weibo.com/u/5507667226" target="_blank" title="点击打开钱鹿微博">钱鹿官方微博：@钱鹿官方</a></p>
+                <p class="mt5"><a href="http://tieba.baidu.com/%E9%92%B1%E9%B9%BF" target="_blank" title="点击打开钱鹿吧">钱鹿吧：@钱鹿吧</a></p>
+            </div>
+        </div>
+        <div class="row mt24">
+            <div class="title tac">
+                <div class="line"></div>
+                <h3>帮助中心</h3>
+            </div>
+            <div>
+                <p class="ml36 mr36">＂钱鹿＂，是一个崭新的移动APP的实用平台，您通过钱鹿下载APP试玩体验，即可获得相应现金奖励。钱鹿开启赚钱之旅，带你装逼带你飞，带你数钱到天黑！</p>
+            </div>
+            <div class="road tac mt36 relative g6 help-box">
+                <div class="help-one">
+                    <img class="dib" src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_help_01.png" alt="help 1" width="362" height="390"/>
+                </div>
+                <div>
+                    <img class="dib" src="http://w.qiandeer.com/qd/static/images/pc/pic_lu.png" alt="road" width="470" height="961"/>
+                </div>
+                <div class="step-one">
+                    <img class="db" src="http://w.qiandeer.com/qd/static/images/pc/pic_mark.png" width="45" height="85">
+                    <span class="num">1</span>
+                    <div class="tal step-text dib ml24">
+                        <p>打开Safari,</p>
+                        <p>输入<a href="http://qiandeer.com">qiandeer.com,</a> </p>
+                        <p>点击进去【钱鹿】首页。</p>
+                    </div>
+                </div>
+                <div class="step-two">
+                    <span class="num dib">2</span>
+                    <p class="dib mr24">登录到钱鹿的首页</p>
+                    <img class="dib mark" src="http://w.qiandeer.com/qd/static/images/pc/pic_mark.png" width="45" height="85">
+                    <img class="dib pic" src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_help_02.png" width="136" height="282">
+                </div>
+                <div class="step-three">
+                    <img class="pic dib" src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_help_03.png" width="288" height="282">
+                    <img class="mark dib" src="http://w.qiandeer.com/qd/static/images/pc/pic_mark.png" width="45" height="85">
+                    <span class="num">3</span>
+                    <div class="dib text">
+                        <p>首次使用，请先点击＂安装（钱鹿小助手）＂，根据提示完成下载安装。</p>
+                        <p class="fc-oranger fs-12 mt12">【请先到桌面确认小助手已安装成功，在返回本页开启登录】</p>
+                    </div>
+                </div>
+                <div class="step-four">
+                    <span class="num dib">4</span>
+                    <p class="dib text">已成功安装钱鹿小助手，回到首页，点击“开启赚钱之旅”。</p>
+                    <img class="mark dib" src="http://w.qiandeer.com/qd/static/images/pc/pic_mark.png" width="45" height="85">
+                    <img class="pic dib" src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_help_04.png" width="265" height="282">
+                </div>
+                <div class="step-five">
+                    <img class="dib mark" src="http://w.qiandeer.com/qd/static/images/pc/pic_mark.png" width="45" height="85">
+                    <span class="num dib">5</span>
+                    <p class="dib text">登录成功，恭喜你正式成为一名高贵的＂鹿茸＂，马上动动手指开始赚钱吧～！</p><br>
+                    <img class="dib pic" src="http://w.qiandeer.com/qd/static/images/pc/v1/pic_help_05.png" width="136" height="282">
+                </div>
+            </div>
+        </div>
+        <div class="row tac g9 mt24 mb24">
+            <div class="title tac title-url">
+                <div class="line line-url"></div>
+                <h3 class="fc-oranger">Qiandeer.com</h3>
+            </div>
+            <div class="qt-box">
+                <div class="qt-lt"></div>
+                <img src="http://w.qiandeer.com/qd/static/images/pc/home-qt.png" width="140" height="140">
+                <div class="qt-rb"></div>
+            </div>
+            <p class="fc-oranger fs-24 tac mt24 mb8">手机扫描二维码开始赚钱</p>
+            <p class="pt24">Copyright © 2014 qiandeer Corporation All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="/static/dist/070-common-pc.js"></script>
+    <script>
+        $(function() {
+            $('.banner-slider').unslider({
+                delay: 2000,
+                speed: 1000,
+                dots: false
+            });
+        });
+    </script>
+</body>
+</html>

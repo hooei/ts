@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--意见反馈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list { margin: 12px; border: 1px solid #e5e5e5; }
+        .list li { padding: 12px 8px; display: -webkit-box;}
+        .btn-upload { padding: 0.6em 6.8em; }
+        textarea { height: 5.6em; }
+        .list label { display: block; padding: 0 8px; -webkit-box-flex: 1; }
+        .fb-task { overflow: hidden; opacity: 1; }
+    </style>
+</head>
+<body class="pt44">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/config"> < </a></i>
+        <h1>意见反馈</h1>
+    </div>
+    <div class="ui-page ui-page-active">
+        <div class="ui-panel mt12 ml8 mr8 pb8 bgc-white">
+            <p class="fc-oranger pt12 ml12">反馈类型</p>
+            <ul class="list list-border g8">
+                <li class="box bac bpc">
+                    <input class="box" id="error-prize" type="radio" name="type" value="1" checked/>
+                    <label class="box" for="error-prize">获取奖励失败</label>
+                </li>
+                <li class="box bac bpc">
+                    <input class="box" id="error-run" type="radio" name="type" value="2"/>
+                    <label class="box" for="error-run">运行错误</label>
+                </li>
+                <li class="box bac bpc">
+                    <input class="box" id="error-improve" type="radio" name="type" value="3"/>
+                    <label class="box" for="error-improve">改进意见</label>
+                </li>
+            </ul>
+        </div>
+        <div class="ui-panel mt8 ml8 mr8 pb8 bgc-white">
+            <div class="fb-task">
+                <p class="pt12 ml12 fc-oranger">输入反馈任务</p>
+                <div class="box mt8">
+                    <input class="form-field flex1 ml12 mr12" type="text" name="task" placeholder="请输入您要反馈的任务">
+                </div>
+            </div>
+            <div>
+                <p class="pt12 ml12 fc-oranger">反馈描述</p>
+                <div class="box mt8">
+                    <textarea class="form-field flex1 ml12 mr12" name="desc" placeholder="请描述您遇到的问题或者意见,我们将尽快修复并回复您."></textarea>
+                </div>
+            </div>
+            <div>
+                <p class="pt12 ml12 fc-oranger">联系QQ</p>
+                <div class="box mt8 mb8">
+                    <input class="form-field flex1 ml12 mr12" name="qq" placeholder="请输入您的QQ号码">
+                </div>
+            </div>
+        </div>
+        <div class="tac pb24">
+            <button class="btn btn-upload btn-success mt12 radius" type="submit">提交</button>
+        </div>
+    </div>
+    <script id="tpl-success" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box">提示</span>
+            </div>
+            <div class="mt12 g6">
+                感谢您宝贵的反馈意见，我们会尽快为您改善!
+            </div>
+            <div class="tac mt12 mb12">
+                <a class="db mt12 btn btn-default radius btn-reload" href="###" data-ck="4">确定</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-fail" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box">提示</span>
+            </div>
+            <div class="mt12 g6 tac">
+                {=msg}
+            </div>
+            <div class="tac">
+                <a class="fs-14 btn-close btn btn-success btn-change mt24 radius mb5" href="###"> 确定 </a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-alert" type="text/template">
+        <div class="ui-panel ml12 mr12 p16 pt12 pb12 bgc-white round">
+            <div class="box bac">
+                <span class="box">提示</span>
+            </div>
+            <div class="mt12 g6">
+                {=msg}
+            </div>
+            <div class="tac">
+                <a class="fs-14 btn-close btn btn-success btn-change mt24 radius mb5" href="###"> 确定 </a>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        $(function() {
+            QL.Main.start('feedback');
+        })
+    </script>
+</body>
+</html>

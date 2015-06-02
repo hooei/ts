@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--新手教程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <meta name="renderer" content="webkit">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li:active { background-color: #ececec; }
+        .i { display: block; width: 46px; height: 46px; text-align: center; border-radius: 50%; line-height: 46px; background-color: #89b94c; color: #fff; font-weight: 700;  }
+        .label { padding: 5px 12px; color: #e75735; border: 1px solid #e75735; border-radius: 3px; }
+    </style>
+</head>
+<body class="pt44" id="setting-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/task"> < </a></i>
+        <h1>新手任务</h1>
+    </div>
+    <div class="ui-panel fs-16 pb12">
+        <ul class="list bgc-white list-border">
+            <li>
+                <a class="box bac" href="/info?task=1" data-action="info">
+                    <span class="box mr8">
+                        <i class="icon icon-info"></i>
+                    </span>
+                    <span class="flex1 box mr8">
+                        完善个人资料
+                    </span>
+                    <span class="box bpr bac label mr5">
+                        0.2元
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/task/video" data-action="video">
+                    <span class="box mr8">
+                        <i class="icon icon-teach"></i>
+                    </span>
+                    <span class="flex1 box mr8">
+                        新手教程分享
+                    </span>
+                    <span class="box bpr bac label mr5">
+                        0.2元
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/task/survey" data-action="survey">
+                    <span class="box mr8">
+                        <i class="icon icon-survey"></i>
+                    </span>
+                    <span class="flex1 box mr8">
+                        新手问卷
+                    </span>
+                    <span class="box bpr bac label mr5">
+                        0.2元
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var PD = {
+            info : {{info}},
+            video:  {{video}},
+            survey: {{survey}}
+        }
+        $(function() {
+            if (PD.info && PD.video && PD.survey) {
+                window.location.href = '/task';
+            }
+
+            if (PD.info) {
+                $('ul li').first().find('.label').html('已完成');
+            }
+            if (PD.video) {
+                $('ul li').eq(1).find('.label').html('已完成');
+            }
+            if (PD.survey) {
+                $('ul li').last().find('.label').html('已完成');
+            }
+
+            $('a').on('click', function() {
+                var $this = $(this),
+                    action = $this.data('action');
+
+                if (action === 'info' && PD.info) {
+                    alert('您已经完成了该任务');
+                    return false;
+                }
+                if (action === 'video' && PD.video) {
+                    alert('您已经完成了该任务');
+                    return false;
+                }
+                if (action === 'survey' && PD.survey) {
+                    alert('您已经完成了该任务');
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+</body>
+</html>

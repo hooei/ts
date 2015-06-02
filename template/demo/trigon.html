@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+
+    <link rel="stylesheet" href="/static/assets/global.css"/>
+    <link rel="stylesheet" href="/static/assets/main.css"/>
+
+    <style>
+        .money { top: 32px; right: 0; }
+        .destop-tip {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            opacity: 1;
+            -webkit-transform: translate3d(0, 10px, 0);
+            -webkit-animation-delay: 0s;
+            -webkit-animation-duration: 512ms;
+            -webkit-animation-name: up;
+        }
+        @-webkit-keyframes up { from { opacity: 0.8; -webkit-transform: translate3d(0, 20px, 0)}
+            to { opacity: 1; -webkit-transform: translate3d(0, 10px, 0)} }
+        .destop-tip .ui-panel { width: 212px!important; }
+        .destop-tip .ui-header { background-color: #4eb7a8; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; }
+        .ui-content { background-color: #444; -webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px;}
+        .ui-footer { background-color: #e5e5e5; }
+        .ui-footer:after { content: 'x'; display: inline-block;
+            height: 0;
+            width: 0;
+            line-height: 9999px;;
+            top: -2px;
+            overflow: hidden;
+            position: relative;
+            border-width: 12px;
+            border-style: solid;
+            border-color: #444 transparent  transparent transparent;
+        }
+        .trigon {
+            height: 0;
+            width: 0;
+            line-height: 9999px;;
+            top: -2px;
+            overflow: hidden;
+            position: relative;
+            border-width: 12px 10px;
+            border-style: solid;
+            border-color: transparent #444  #444 transparent;
+        }
+    </style>
+</head>
+<body class="bgc-gray" id="home-page">
+    <div class="trigon"></div>
+
+
+    <script src="/static/lib/zepto/1.1.6/zepto.js"></script>
+    <script src="/static/assets/md5.js"></script>
+    <script src="/static/assets/api.js"></script>
+    <script src="/static/assets/main.js"></script>
+    <script>
+        window.PD = {
+//            time: {{ data['first'] }}
+        }
+
+        $(function() {
+        });
+
+    </script>
+</body>
+</html>

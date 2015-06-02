@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--问卷调查任务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <meta name="renderer" content="webkit">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li:active { background-color: #ececec; }
+        .btn-success { padding: 0.8rem 6rem; }
+        .ui-panel { margin: 12px 8px; padding: 8px; background-color: #fff; border-radius: 5px; }
+        .num { position: relative; top: -2px; margin: 0px 8px 0 3px; font-size: 22px; color: #e75735; font-weight: 700; }
+        .title { font-size: 13px; color: #333; }
+        .survey-tips ul {
+            margin-top: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .survey-tips ul li {
+            position: absolute;
+            width: 100%;
+        }
+        .answer-box {
+            display: block;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            margin: 8px;
+            padding: 12px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .answer-box:before {
+            content: attr(data-num);
+            display: block;
+            background-color: #e75735;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            width: 24px;
+            height: 24px;
+            margin: 12px auto 36px;
+            border-radius: 50%;
+            border: 1px solid #e75735;
+            line-height: 24px;
+            text-align: center;
+        }
+        .answer-box-fixed:before {
+            margin: 12px auto 10px;
+        }
+        .answer-box.on {
+            border: 1px solid #afe727;
+        }
+        .answer-box.on:before {
+            content: '√';
+            background-color: #fff;
+            color: #afe727;
+            font-weight: 700;
+            border: 1px solid #afe727;
+        }
+        .btn-answer { display: none; }
+    </style>
+</head>
+<body class="pt44" id="setting-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/task/teach"> < </a></i>
+        <h1>新手任务</h1>
+    </div>
+    <div class="ui-panel fs-14 g6 pb12">
+        <p class="fs-18 g3 mt12 fc-oranger tac">填写新手问卷就能拿到现金奖励</p>
+        <div class="survey-tips">
+            <ul class="unstyled">
+                <li class="db">
+                    <div class="box">
+                        <i class="dib num">1</i>
+                        <p class="title flex1">终于到周末啦~萌萌哒钱鹿准备出门踏青~这个时候，用户申请兑现，你猜猜会怎样？</p>
+                    </div>
+                    <div class="box mt16" data-num="1">
+                        <a href="javascript: void(0);" class="answer-box flex-fixed flex1" data-num="A">
+                            玩high了的鹿鹿周一才统一进行兑现
+                        </a>
+                        <a class="answer-box flex-fixed flex1" data-num="B">
+                            鹿鹿很惨的被老板拉回来兑现
+                        </a>
+                    </div>
+                    <div class="tac mt24 pt12 pb24 hide">
+                        <a class="btn-answer btn btn-success radius fs-12" href="###" data-id="1">下一题</a>
+                    </div>
+                </li>
+                <li class="db">
+                    <div class="box">
+                        <i class="dib num">2</i>
+                        <p class="title flex1">在钱鹿赚取多少钱即可兑现啦？</p>
+                    </div>
+                    <div class="box mt16" data-num="2">
+                        <a class="answer-box flex-fixed flex1" data-num="A">
+                            只需玩够10元即可轻松兑现啦
+                        </a>
+                        <a class="answer-box flex-fixed flex1" data-num="B">
+                            需要很苦逼玩了30才可以兑现
+                        </a>
+                    </div>
+                    <div class="tac mt24 pt12 pb24 hide">
+                        <a class="btn-answer btn btn-success radius fs-12" href="###" data-id="2">下一题</a>
+                    </div>
+                </li>
+                <li class="db">
+                    <div class="box">
+                        <i class="dib num">3</i>
+                        <p class="title flex1">兑现需要手续费吗？</p>
+                    </div>
+                    <div class="box mt16" data-num="3">
+                        <a class="answer-box flex-fixed flex1" data-num="A">
+                            不需要任何手续费的，兑现不扣取任何费用
+                        </a>
+                        <a class="answer-box flex-fixed flex1" data-num="B">
+                            兑现一次扣5元，兑现一次扣一次
+                        </a>
+                    </div>
+                    <div class="tac mt24 pt12 pb24 hide">
+                        <a class="btn-answer btn btn-success radius fs-12" href="###" data-id="3">下一题</a>
+                    </div>
+                </li>
+                <li class="db">
+                    <div class="box">
+                        <i class="dib num">4</i>
+                        <p class="flex1">完成任务不给奖励怎么处理？</p>
+                    </div>
+                    <div class="box mt16" data-num="4">
+                        <a class="answer-box answer-box-fixed flex-fixed flex1" data-num="A">
+                            限时任务可直接联系客服反馈，钱鹿负责处理。联盟任务即可直接在联盟任务列表底部提交问题反馈，广告主自行处理。
+                        </a>
+                        <a class="answer-box flex-fixed flex1" data-num="B">
+                            自认倒霉
+                        </a>
+                    </div>
+                    <div class="tac mt24 pt12 pb24 hide">
+                        <a class="btn-answer btn btn-success radius fs-12" href="###" data-id="4">下一题</a>
+                    </div>
+                </li>
+                <li class="db">
+                    <div class="box">
+                        <i class="dib num">5</i>
+                        <p class="flex1">分享收徒有什么好处呀？</p>
+                    </div>
+                    <div class="box mt16" data-num="5">
+                        <a class="answer-box flex-fixed flex1" data-num="A">
+                            分享收徒即可坐享高达20%~30%的徒弟徒孙收入提成。
+                        </a>
+                        <a class="answer-box flex-fixed flex1" data-num="B">
+                            我就是分享不求回报的圣母玛利亚
+                        </a>
+                    </div>
+                    <div class="tac mt24 pt12 pb24 hide">
+                        <a class="btn-answer btn btn-success radius fs-12" href="###" data-id="5">下一题</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var PD = {
+        }
+
+        $(function() {
+            // 轮播教程
+            var slider = new Slider({
+                dom: document.querySelector('.survey-tips'),
+                touch: 0,
+                auto: 0,
+                time: 3000,
+                speed: 200,
+                dot: 1
+            });
+
+
+            $('.answer-box').on('tap', function() {
+                var $this = $(this),
+                    target = parseInt($this.parent().data('num')),
+                    num = $this.data('num'),
+                    rightValue = ['A', 'A', 'A', 'A', 'A'];
+
+                if (num !== rightValue[target -1]) {
+                    alert('回答错误了，请重新选择');
+                }
+                else {
+                    if (target < 5) {
+                        $this.addClass('on');
+                        alert('回答正确，进入下一题')
+                        slider.goIndex('+1');
+                    }
+                    else {
+                        API.loadData('/task/survey', {
+                            method: 'POST',
+                            params: '',
+                            success: function(result) {
+                                if(result && !result.c) {
+                                    alert('完成任务：新手教程分享\t\n获得0.20元');
+                                    window.location.href = '/task/teach';
+                                }
+                                else {
+                                    alert('无法提交答案，请重试');
+                                }
+                            },
+                            error: function() {
+                                alert('无法提交答案，请重试');
+                            }
+                        });
+                    }
+                }
+                return false;
+            });
+        })
+    </script>
+</body>
+</html>

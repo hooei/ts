@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+
+    <link rel="stylesheet" href="/static/assets/global.css"/>
+    <link rel="stylesheet" href="/static/assets/main.css"/>
+
+    <style>
+        .flow-box {
+            background-color: #d63830;
+            width: 240px;
+            border-radius: 6px;
+        }
+        .flow-box-notice .flow-header img{
+            position: relative;
+            margin-top: -18px;
+        }
+        .flow-header img {
+            position: relative;
+            margin-top: -10px;
+        }
+
+    </style>
+</head>
+<body class="bgc-gray" id="home-page">
+    <div class="ui-page ui-page-active">
+    </div>
+
+    <script id="tpl-flow" type="text/template">
+        <div class="flow-box ui-panel fc-white fs-16">
+            <div class="flow-header tac box vertical bpc">
+                <p class="fs-20 flex1 pt12 fw-b">注册就送10M流量</p>
+                <img class="dib" src="/static/images/active/flow/pic_red.svg" width="236" height="51">
+            </div>
+            <div class="p16 mt6 fs-14 tac pb16 radius-bottom">
+                <div class="box bal vertical">
+                    <input class="form-field flex1 mt3" type="text" name="phone" placeholder="填写手机号"/>
+                </div>
+                <div class="mt16 box bac">
+                    <input class="form-field flex1" type="text" name="code" placeholder="输入验证码"/>
+                    <a href="javascript: void(0);" id="flow-code" class="btn btn-s btn-secondary radius ml6 p6 pt3 pb3" data-loading-text="正在获取中">获取验证码</a>
+                </div>
+                <a href="javascript: void(0);" id="flow-submit" class="btn btn-secondary big mt16 radius">提交获得10M流量</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-flow-notice" type="text/template">
+        <div class="flow-box flow-box-notice ui-panel fc-white fs-16">
+            <div class="flow-header tac box vertical bpc">
+                <p class="fs-24 flex1 pt12 fw-b">恭喜你</p>
+                <p class="fs-18 flex1 fw-b">成功获得10M流量</p>
+                <img class="dib" src="/static/images/active/flow/pic_red.svg" width="236" height="51">
+            </div>
+            <div class="p12 mt6 fs-12 tal pb16 radius-bottom fw-n">
+                <p>您的流量将在两个工作日内充值到您的手机号内！</p>
+                <p class="mt6">在钱鹿体验应用、收取徒弟都能获得现金奖励哦！马上开启赚钱之旅！</p>
+                <a href="javascript: void(0);" id="flow-success" class="btn btn-secondary big mt16 radius">开始赚钱之旅</a>
+            </div>
+        </div>
+    </script>
+    <script src="/static/lib/zepto/1.1.6/zepto.js"></script>
+    <script src="/static/assets/md5.js"></script>
+    <script src="/static/assets/api.js"></script>
+    <script src="/static/assets/main.js"></script>
+    <script>
+        $(function() {
+            Lightbox.init();
+            Lightbox.show($('#tpl-flow').tmpl());
+
+            // 获取验证码
+            $('#flow-code').on('tap', function() {
+                var phone = $('input[name=phone]').val().trim(),
+                    $self = $(this);
+
+                // 已经点击，返回
+                if ($self.data('work') === 1) {
+                    return false;
+                }
+
+                // 判断手机号码是否合法
+                if(!/^\d+$/.test(phone) || phone.length != 11 || phone.charAt(0) != '1'){
+                    alert('请输入正确手机的号码')
+                    return false;
+                }
+
+                // 设置按钮已点击
+                $self.data('work', 1).html('正在获取中');
+
+                // 获取验证码
+                API.loadData('/code', {
+                    method: 'GET',
+                    params: { phone: phone },
+                    success: function(result) {
+                        if(result && !result.c) {
+                            alert('请输入您短信接收到的短信验证码');
+                            count($self, 5);
+                        }
+                        else {
+                            var msg = '';
+                            try{
+                                switch(result.c) {
+                                    case -3001:
+                                        msg = '手机号码无效，请重试';
+                                        break;
+                                    case -2001:
+                                        msg = '验证码无效，请重试';
+                                        break;
+                                    case -2002:
+                                        msg = '验证码错误，请重试';
+                                        break;
+                                    case -2003:
+                                        msg = '发送过于频繁，请三分钟后重试';
+                                        break;
+                                    case -2004:
+                                        msg = '短信发送失败，请重试';
+                                        break;
+                                    default :
+                                        break;
+                                }
+                            }
+                            catch(e) {
+                                msg = '发送失败，请重试';
+                            }
+                            alert(msg);
+                            $self.data('work', 0).html('获取验证码');
+                        }
+                    },
+                    error: function() {
+                        alert('网络不通畅，请重试');
+                        $self.data('work', 0).html('获取验证码');
+                    }
+                })
+
+            });
+
+            // 提交手机号码
+            $('#flow-submit').on('tap', function() {
+                var phone = $('input[name=phone]').val().trim(),
+                    code = $('input[name=code]').val().trim(),
+                    $self = $(this);
+
+                // 已经点击，返回
+                if ($self.data('work') === 1) {
+                    return false;
+                }
+
+                // 判断手机号码是否合法
+                if(!/^\d+$/.test(phone) || phone.length != 11 || phone.charAt(0) != '1'){
+                    alert('请输入正确手机的号码')
+                    return false;
+                }
+
+                // 判断验证码
+                if(code.length < 1) {
+                    alert('请输入短信验证码');
+                    return false;
+                }
+
+                // 已点击
+                $self.data('work', 1).html('正在提交...');
+
+                // 获取验证码
+                API.loadData('/phone', {
+                    method: 'GET',
+                    params: { phone: phone, code: code},
+                    success: function(result) {
+                        if(result && !result.c) {
+                            Lightbox.show($('#tpl-flow-notice').tmpl());
+                            $('#flow-success').on('tap', function() {
+                                Lightbox.hide();
+                            });
+                        }
+                        else {
+                            var msg = '';
+                            try{
+                                switch(result.c) {
+                                    case -2001:
+                                        msg = '验证码无效，请重试';
+                                        break;
+                                    case -2002:
+                                        msg = '验证码错误，请重试';
+                                        break;
+                                    default :
+                                        break;
+                                }
+                            }
+                            catch(e) {
+                                msg = '提交失败，请重试';
+                            }
+                            alert(msg);
+                            $self.data('work', 0).html('提交获得10M流量');
+                        }
+                    },
+                    error: function() {
+                        alert('绑定手机出现错误，请重试');
+                        $self.data('work', 0).html('提交获得10M流量');
+                    }
+                })
+            });
+
+            // 倒计时60s
+            function count($btn, n) {
+                if (n === 0) {
+                    $btn.data('work', 0).html('获取验证码');
+                    return false;
+                }
+                else {
+                    $btn.html(n + '秒后重试');
+                    n = n - 1;
+                    setTimeout(function() {
+                        count($btn, n);
+                    }, 1000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

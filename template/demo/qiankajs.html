@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+</head>
+<body>
+<pre>
+
+    jQuery.GSWeixinMonitor = {
+        config: {},
+        servers: [],
+        lastServer: null,
+        currentServerIndex: 0,
+        serverCount: 0,
+        interval: 0,
+        state_bar: null,
+        state_bubble: null,
+        auto_bind: false,
+        isActive: false,
+        errorCount: 0,
+        init: function (params) {
+            this.config = $.extend(jQuery.GSWeixinMonitor.default, params);
+            this.servers = this.config.servers;
+            this.serverCount = this.config.servers.length;
+            this.interval = this.config.interval;
+            this.auto_bind = this.config.auto_bind;
+            var strMonitor = '
+                    < div
+            id = "weixin-monitor" > < / div >
+            ';
+            $("body").append(strMonitor);
+            this.state_bar = $("#weixin-monitor");
+            this.state_bar.css({
+                position: "fixed",
+                "z-index": 1e3,
+                bottom: "30px",
+                right: "16px",
+                width: "47px",
+                height: "58px",
+                "background-size": "47px 58px",
+                "background-repeat": "no-repeat",
+                display: "none"
+            });
+            var strBubble = '
+                    < div
+            id = "weixin-bubble" > < / div >
+            ';
+            $("body").append(strBubble);
+            this.state_bubble = $("#weixin-bubble");
+            this.state_bubble.css({
+                position: "fixed",
+                "z-index": 1e3,
+                bottom: "91px",
+                right: "41px",
+                width: "150px",
+                height: "150px",
+                "background-position": "bottom right",
+                "background-repeat": "no-repeat",
+                display: "none"
+            });
+            var $this = this;
+            this.state_bar.bind("click", function () {
+                if ($this.state_bubble.css("display") == "none") {
+                    $this.state_bubble.velocity("fadeIn", {duration: 200})
+                } else {
+                    $this.state_bubble.velocity("fadeOut", {duration: 200})
+                }
+            });
+            return this
+        },
+        start: function () {
+            setInterval(this.loop, this.interval, this)
+        },
+        loop: function ($this) {
+            $this.currentServerIndex = 0;
+            $this.ping($this.config.servers[0].address, $this.config.servers[0].port, "/ping", {}, $this)
+        },
+        ping: function (url, port, action, params, $this) {
+            this.call_key(url, port, action, params, $this, $this.pingSuccess, $this.pingError)
+        },
+        call_key: function (url, port, action, params, $this, success_callback, error_callback) {
+            $.ajax(url + ":" + port + action, {
+                type: "GET",
+                async: false,
+                cache: false,
+                dataType: "jsonp",
+                jsonp: "callback",
+                timeout: 100,
+                data: params,
+                success: function (rst) {
+                    success_callback($this, rst)
+                },
+                error: function () {
+                    error_callback($this)
+                }
+            })
+        },
+        pingNext: function () {
+            if (this.currentServerIndex == this.serverCount - 1) {
+                this.deactive()
+            } else {
+                this.currentServerIndex++;
+                this.ping(this.config.servers[this.currentServerIndex].address, this.config.servers[this.currentServerIndex].port,
+                        "/ping", {}, this)
+            }
+        },
+        pingSuccess: function ($this, rst) {
+            if (rst.code == 200) {
+                $this.lastServer = $this.servers[$this.currentServerIndex];
+                $this.active();
+                if ($this.auto_bind) {
+                    if ($this.config.open_id) {
+                        $this.bind($this)
+                    }
+                }
+            } else {
+            }
+        },
+        pingError: function ($this) {
+            $this.pingNext()
+        },
+        active: function () {
+            var $this = this;
+            if (!this.isActive) {
+                $this.state_bubble.css({
+                    "background-image": 'url("/img/weixin/onlineBubble@2x.png")',
+                    "background-size": "100px 44px"
+                });
+                this.state_bar.velocity("fadeOut", {
+                    duration: 200, complete: function () {
+                        $this.state_bar.css({"background-image": 'url("/img/weixin/onlineIcon@2x.png")'});
+                        $this.state_bar.velocity("fadeIn", {duration: 200})
+                    }
+                })
+            }
+            this.isActive = true
+        },
+        deactive: function () {
+            var $this = this;
+            if (this.isActive || this.state_bar.css("display") == "none") {
+                this.state_bubble.css({
+                    "background-image": 'url("/img/weixin/offlineBubble@2x.png")',
+                    "background-size": "127px 57px"
+                });
+                this.state_bar.velocity("fadeOut", {
+                    duration: 200, complete: function () {
+                        $this.state_bar.css({"background-image": 'url("/img/weixin/offlineIcon@2x.png")'});
+                        $this.state_bar.velocity("fadeIn", {duration: 200})
+                    }
+                })
+            }
+            this.isActive = false
+        },
+        bind: function ($this) {
+            $this.call_key($this.lastServer.address, $this.lastServer.port, "/bind", {
+                open_id: $this.config.open_id,
+                session_id: $this.config.session_id
+            }, $this, $this.bindSuccess, function () {
+            })
+        },
+        bindSuccess: function ($this, rst) {
+            if (rst.code == 200) {
+                window.location.reload(true)
+            } else {
+                if ($.inArray($this.errorCount, [1, 10, 30, 50]) != -1) {
+                    alert(rst.msg)
+                }
+                $this.errorCount++
+            }
+        },
+        submit: function (url) {
+            this.call_key(this.lastServer.address, this.lastServer.port, url, {}, this, this.submitSuccess, this.submitError)
+        },
+        submitSuccess: function ($this, rst) {
+            if (rst.code == 200) {
+                alert("任务完成");
+                window.location.reload(true)
+            } else {
+                alert(rst.msg)
+            }
+        },
+        submitError: function () {
+            alert("钱咖钥匙已离线，请确认钥匙在线后再提交")
+        }
+    };
+    jQuery.GSWeixinMonitor.default = {
+        servers: [{port: 1367, address: "http://127.0.0.1"}, {
+            port: 11367,
+            address: "http://127.0.0.1"
+        }, {port: 7631, address: "http://127.0.0.1"}, {port: 17631, address: "http://127.0.0.1"}],
+        interval: 1e3,
+        auto_bind: false
+    };
+
+</pre>
+
+</body>
+</html>

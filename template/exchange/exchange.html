@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--兑换</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list { border-left: 5px solid #e75735; padding-bottom: 8px; }
+        .list li { padding: 12px 12px 0 12px; margin: 0;}
+        .btn { padding: .625em 3em;}
+        li.border { padding-bottom: 8px; }
+        body { height: 100%; }
+        .ui-page { height: 100%; }
+        iframe { display: block!important; width: 100%; height: 100%; overflow-x: hidden; }
+    </style>
+</head>
+<body class="bgc-gray box vertical pt54" id="prentice-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="###" onclick="history.back(); return false;"> < </a></i>
+        <h1>兑换中心</h1>
+    </div>
+    <div class="ui-page ui-page-active flex1">
+        <iframe id="iframe" class="flex1" src="" frameborder="0" seamless name="duiba"></iframe>
+    </div>
+    <script>
+    window.url = window.decodeURIComponent("{{ url }}");
+    (function() {
+        document.getElementById('iframe').src = url;
+     }())
+    </script>
+
+</body>
+</html>

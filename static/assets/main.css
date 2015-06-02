@@ -1,0 +1,386 @@
+html {
+    height: 100%;
+}
+
+.ui-page { display: none; }
+.ui-page-active { display: block; }
+
+@-webkit-keyframes show{
+    0% { opacity: 0; }
+    70% { opacity: 0; }
+    100% { opacity: 1;}
+}
+
+/* 提示微信打开 */
+.share-box { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background-color: black; opacity: 0.95 }
+.share-font { position: absolute; top: 0; left: 24px; color: #fff; z-index: 5; }
+.share-deer { position: relative; z-index: 3; width: 100%; text-align: right; }
+.share-deer img{ width: 296px; height: 342px; display: inline-block; margin: 12px; }
+.share-slogen { position: relative; z-index: 3; width: 100%; display: block; margin: 12px auto; }
+.share-slogen img{ width: 265px; display: block; margin: 24px auto; }
+.share-bg { position: fixed; z-index: 2; bottom: 0; left: 0; width: 100%;}
+.share-bg img { width: 100%;}
+
+/* 登录页面 */
+#login-page {
+    width: 320px;
+    margin: 0 auto;
+    background-color: #525662;
+}
+#login-page .header {
+    background-color: #68c3ed;
+}
+#login-page .cloud {
+    position: relative;
+    z-index: 3;
+    width: 80px;
+    height: 17px;
+}
+#login-page .cloud:nth-child(1) {
+    left: -20px;
+    top: 20px;
+}
+#login-page .cloud:nth-child(2) {
+    margin-left: 150px;
+}
+#login-page .bg {
+    position: relative;
+    top: 0px;
+    margin-bottom: -26px;
+    z-index: 2;
+}
+#login-page .car-box { bottom: 5px; left: -9px; width: 100%; position: absolute; z-index: 3; }
+#login-page .car { z-index: 2; width: 101px; height: 121px; bottom: 0rem; }
+#login-page .open-box {
+    position: relative;
+    background-color: #525662;
+}
+#login-page .open-box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    left: 6px;
+    height: 100%;
+    width: 2px;
+    border-left: 2px solid #fff;
+}
+#login-page .open-box:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    right: 7px;
+    height: 100%;
+    width: 2px;
+    border-right: 2px solid #fff;
+}
+
+#login-page .open {
+    position: relative;
+    z-index: 4;
+    top: -2px;
+}
+#login-page .btn-dark {
+    background-color: #c6d355;
+    color: #fff;
+    -webkit-box-shadow: 0 4px 0px #b0be32;
+}
+#login-page .btn-dark:active {
+    position: relative;
+    top: 2px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0px #b0be32;
+}
+#login-page .btn-secondary {
+    -webkit-box-shadow: 0 4px 0px #db9d18;
+}
+#login-page .btn-secondary:active {
+    position: relative;
+    top: 2px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0px #db9d18;
+}
+#login-page .btn-success {
+    background-color: #55ca98;
+    -webkit-box-shadow: 0 4px 0px #39b782;
+    text-decoration: none;
+}
+#login-page .btn-success:active {
+    position: relative;
+    top: 2px;
+    border: 1px solid transparent;
+    background-color: #55ca98;
+    -webkit-box-shadow: 0 2px 0px #39b782;
+}
+#login-page .btn-open, #login-page .btn-install { width: 242px; padding: 12px 0;}
+
+#login-page .progress {
+    position: relative;
+    background-color: #ddd;
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+}
+#login-page .progress .prentice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #9ed740;
+    border-radius: 20px;
+}
+#login-page .install-tips ul {
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+#login-page .install-tips ul li {
+    position: absolute;
+    width: 100%;
+}
+#login-page .panel-done, #login-page .panel-progress, #login-page .panel-update, .panel-open {
+    background-color: #f8f8f8;
+    width: 286px!important;
+}
+#login-page .number {
+    margin: 0 12px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #e75735;
+    border: 1px solid #e75735;
+    border-radius: 100%;
+    text-align: center;
+}
+hr {
+    border-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5JREFUeNpiPnH8zH/G////MzAxAAHTyRNn/wMEGABpvQm9g9TJ1QAAAABJRU5ErkJggg==") 2 0 stretch;
+    border-width: 0px 0px 1px;
+}
+.slider-dots {
+    text-align: center;
+}
+.slider-dots .slider-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-left: 5px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+}
+.slider-dots .slider-dot.active {
+    background-color: #e75735;
+    border: 1px solid #e75735;
+}
+
+
+
+/* 排行榜 */
+.content-rank {
+    margin: 0 7px 0 6px;
+    padding-top: 24px;
+    padding-bottom: 12px;
+    background-color: #525662;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.content-rank .title:first-child {
+    margin-top: 0px;
+}
+.content-rank .title {
+    height: 25px;
+    margin: 24px 0 0 12px;
+    color: #fff;
+    background-image: url("http://w.qiandeer.com/qd/static/images/login/pic_title_arrow.svg");
+    background-size: 110px 25px;
+    text-indent: 32px;
+    font-size: 12px;
+    line-height: 24px;
+}
+.content-rank .title.red {
+    background-image: url("http://w.qiandeer.com/qd/static/images/login/pic_title_arrow_red.svg");
+}
+.content-rank .title.green {
+    font-size: 10px;
+    line-height: 25px;
+    background-image: url("http://w.qiandeer.com/qd/static/images/login/pic_title_arrow_green.svg");
+}
+.content-rank .title {
+    background-size: 110px 25px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.content-rank .total-list, .content-rank .yet-list, .content-rank .money-list {
+    background-color: #fff;
+    margin: 5px 12px 0;
+    border-radius: 5px;
+    color: #525662;
+    font-size: 14px;
+}
+.content-rank .total-list li, .content-rank .yet-list li {
+    border-bottom: 1px solid #e5e5e5;
+}
+.content-rank .total-list li:last-child, .content-rank .yet-list li:last-child {
+    border-bottom: none;
+}
+.content-rank .money-list {
+    position: relative;
+    overflow: hidden;
+}
+.content-rank .money-list li {
+    position: absolute;
+    width: 100%;
+}
+
+
+
+#setting-page .banner {
+    padding: 12px 0 32px 0 !important;
+}
+#setting-page .list li a {
+    font-size: 14px;
+}
+#setting-page .list li {
+    padding: 14px 2px 14px 12px;
+}
+
+
+/* iphone4 */
+@media screen and (device-width: 320px) and (device-height: 480px),
+screen and (device-width: 480px) and (device-height: 320px) {
+    .header { padding-top: 8px; !important;}
+    #login-page .cloud { width: 280px; height: 76px;}
+    #login-page .cloud-box { display: none; }
+}
+
+/* iphone 5 */
+@media screen and (width: 320px) and (height: 568px),
+screen and (width: 568px) and (height: 320px) {
+    #login-page { width: 320px; margin: 0 auto; }
+}
+
+/* iphone 6 */
+@media screen and (width: 375px) and (height: 667px),
+screen and (width: 667px) and (height: 375px) {
+    /*
+    #login-page { width: 375px; margin: 0 auto; }
+    #login-page .road { z-index: 1; width: 375px; height: 260px; position: relative; top: -2rem;}
+    #login-page .car-box { bottom: 0rem; width: 100%; position: absolute; z-index: 3; }
+    #login-page .car { z-index: 2; width: 101px; height: 121px; bottom: 0rem; }
+    #login-page .slogen { margin-top: 24px; width: 180px; height: 56px; }
+    #login-page .btn-open { font-size: 20px; margin-top: 36px; padding: 0.6em 3.2em; }
+    */
+
+    /*
+    #setting-page .avatar {
+        width: 82px;
+        height: 82px;
+    }
+    #setting-page .list li {
+        padding: 18px 2px 18px 12px;
+    }
+    #setting-page .username {
+        font-size: 24px;
+    }
+    #setting-page .list li a {
+        font-size: 16px;
+    }
+    #setting-page .banner {
+        padding: 24px 0 36px 0;
+    }
+
+    #info-page .avatar {
+        width: 82px;
+        height: 82px;
+    }
+    #info-page .avatar-change {
+        font-size: 14px;
+    }
+    #info-page .list li{
+        padding: 22px 14px;
+    }
+    #info-page .banner {
+        padding: 12px 0;
+    }
+    #info-page #btn-update {
+        margin-top: 12px;
+    }
+    */
+
+}
+
+/* iphone 6 plus */
+@media screen and (width: 414px) and (height: 736px),
+screen and (width: 736px) and (height: 414px) {
+    /*
+    #login-page { width: 414px; margin: 0 auto; }
+    #login-page .road { z-index: 1; width: 414px; height: 287px; position: relative; top: -2rem;}
+    #login-page .car-box { bottom: 0rem; width: 100%; position: absolute; z-index: 3; }
+    #login-page .car { z-index: 2; width: 101px; height: 121px; bottom: 0rem; }
+    #login-page .slogen { margin-top: 36px; width: 180px; height: 56px; }
+    #login-page .btn-open { font-size: 20px; margin-top: 48px; padding: 0.6em 3.2em; }
+    */
+    /*
+    #setting-page .avatar {
+        width: 82px;
+        height: 82px;
+    }
+    #setting-page .list li {
+        padding: 18px 2px 18px 12px;
+    }
+    #setting-page .list li a {
+        font-size: 16px;
+    }
+    #setting-page .banner {
+        padding: 28px 0 36px 0;
+    }
+
+    #info-page .avatar {
+        width: 82px;
+        height: 82px;
+    }
+    #info-page .avatar-change {
+        font-size: 14px;
+    }
+    #info-page .list li{
+        padding: 22px 14px;
+    }
+    #info-page .banner {
+        padding: 12px 0;
+    }
+    #info-page #btn-update {
+        margin-top: 12px;
+    }
+    */
+}
+
+/* ipad 1/2/3/4/mini */
+@media screen and (min-width: 768px) and (orientation: portrait){
+    .modal { top: 250px; }
+}
+@media screen and (min-width: 768px) and (orientation: landscape){
+    .modal { top: 200px; }
+}
+@media screen and (min-width: 768px) {
+    #login-page .share-font { width: 250px; right: 20%; left: inherit;}
+    #login-page { width: 414px; margin: 0 auto; height: 100%; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center;}
+    #login-page { width: 414px; margin: 0 auto; display: -webkit-box; }
+    #login-page .road { z-index: 1; width: 414px; height: 287px; position: relative; top: -2rem;}
+    #login-page .car-box { bottom: 0rem; width: 100%; position: absolute; z-index: 3; }
+    #login-page .car { z-index: 2; width: 101px; height: 121px; bottom: 0rem; }
+    #login-page .slogen { margin-top: 36px; width: 180px; height: 56px; }
+    #login-page .btn-open { font-size: 20px; margin-top: 48px; padding: 0.6em 3.2em; }
+}
+
+
+/* 屏幕小于450px 分享页面 */
+@media screen and (max-height: 450px) {
+    #login-page .share-slogen {
+        position: fixed;
+        top: 0;
+    }
+}

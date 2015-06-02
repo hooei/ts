@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+
+    <link rel="stylesheet" href="/static/assets/global.css"/>
+    <link rel="stylesheet" href="/static/assets/main.css"/>
+
+    <style>
+    </style>
+</head>
+<body class="bgc-gray">
+    <div class="ui-page ui-page-active">
+        <a class="btn btn-set">存值</a>
+        <a class="btn btn-get">取值</a>
+    </div>
+
+    <script src="/static/lib/zepto/1.1.6/zepto.js"></script>
+    <script src="/static/lib/lottery.js"></script>
+    <script src="/static/assets/md5.js"></script>
+    <script src="/static/assets/api.js"></script>
+    <script src="/static/assets/main.js"></script>
+    <script>
+        window.PD = {
+//            time: {{ data['first'] }}
+        }
+
+        $(function() {
+            $('.btn-set').on('tap', function() {
+//                var params = {ac: 2, k: 'test', t: 10, v: JSON.stringify({'a': 'a', b: 'b'})};
+                var params = {ac: 2, k: 'test', t: 300, v: 'test'};
+                API._s('wywzkv', params, {
+                    timeout: 2000,
+                    success: function(data) {
+                        alert(JSON.stringify(data));
+                        if (!data.c) { // 在线
+                        }
+                        else { // 助手出错
+                        }
+                    },
+                    error: function() {
+                        alert('error');
+                    }
+                });
+            });
+
+            $('.btn-get').on('tap', function() {
+                var params = {ac: 1, k: 'test', t: '', v: ''};
+                API._s('wywzkv', params, {
+                    timeout: 2000,
+                    success: function(data) {
+                        alert(JSON.stringify(data));
+//                        var result = JSON.parse(data.d);
+//                        alert(result['b']);
+                        if (!data.c) { // 在线
+                        }
+                        else { // 助手出错
+                        }
+                    },
+                    error: function() {
+                        alert('error');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--联盟任务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <meta name="renderer" content="webkit">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li:active { background-color: #ececec; }
+        .i { display: block; width: 46px; height: 46px; text-align: center; border-radius: 50%; line-height: 46px; background-color: #89b94c; color: #fff; font-weight: 700;  }
+        .icon-duo { background-color: #89b94c; }
+        .icon-wan { background-color: #79b7dc; }
+        .icon-zhi { background-color: #ff8000; }
+        .icon-mi { background-color: #ffb600; }
+        .tip1 { margin: 12px 24px; padding: 8px 12px; border: 1px dashed #bbb;}
+        .tip2 { margin-top: 8px; padding: 5px 10px; text-align:justify; }
+    </style>
+</head>
+<body class="pt44" id="setting-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/task"> < </a></i>
+        <h1>联盟任务</h1>
+    </div>
+    <div class="ui-panel fs-16 pb12">
+        <div class="tip1 tac">
+            <p class="g9 fs-14">100积分=1元，每天不定时更新</p>
+        </div>
+        <ul class="list bgc-white list-border">
+            <li>
+                <a id="task-mi" class="box bac" href="###">
+                    <span class="box mr8">
+                        <i class="i icon-mi">有米</i>
+                    </span>
+                    <span class="fs-16">有米</span>
+                    <span class="flex1 box bpr bac">
+                        <span class="fc-gray fs-14">任务多，口碑好</span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a id="task-wan" class="box bac" href="###">
+                    <span class="box mr8">
+                        <i class="i icon-wan">万普</i>
+                    </span>
+                    <span class="fs-16">万普</span>
+                    <span class="flex1 box bpr bac">
+                        <span class="fc-gray fs-14">任务多，返利快</span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="hide">
+                <a id="task-ju" class="box bac" href="###">
+                    <span class="box mr8">
+                        <i class="i icon-wan">巨掌</i>
+                    </span>
+                    <span class="fs-16">巨掌</span>
+                    <span class="flex1 box bpr bac">
+                        <span class="fc-gray fs-14">任务多，返利快</span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="hide">
+                <a id="task-duo" class="box bac" href="###">
+                    <span class="box mr8">
+                        <i class="i icon-duo">多盟</i>
+                    </span>
+                    <span class="fs-16">多盟</span>
+                    <span class="flex1 box bpr bac">
+                        <span class="fc-gray fs-14">更新快，结算快</span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="hide">
+                <a id="task-zhi" class="box bac" href="###">
+                    <span class="box mr8">
+                        <i class="i icon-zhi">指盟</i>
+                    </span>
+                    <span class="fs-16">指盟</span>
+                    <span class="flex1 box bpr bac">
+                        <span class="fc-gray fs-14">闷声发大财~</span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <div class="tip2 fs-10 g6">
+            如在正常状态下完成任务而未得到奖励，请在该联盟任务页面最底端通过“问题反馈”等，投诉该广告联盟商，联盟返现我们一起监督！
+        </div>
+    </div>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var PD = {
+        }
+        $(function() {
+            QL.Main.start('union');
+        });
+    </script>
+</body>
+</html>

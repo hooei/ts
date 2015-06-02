@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+
+    <link rel="stylesheet" href="/static/assets/global.css"/>
+    <link rel="stylesheet" href="/static/assets/main.css"/>
+
+    <style>
+        .money { top: 32px; right: 0; }
+        .destop-tip {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            opacity: 1;
+            -webkit-transform: translate3d(0, 10px, 0);
+            -webkit-animation-delay: 0s;
+            -webkit-animation-duration: 512ms;
+            -webkit-animation-name: up;
+        }
+        @-webkit-keyframes up { from { opacity: 0.8; -webkit-transform: translate3d(0, 20px, 0)}
+            to { opacity: 1; -webkit-transform: translate3d(0, 10px, 0)} }
+        .destop-tip .ui-panel { width: 212px!important; }
+        .destop-tip .ui-header { background-color: #4eb7a8; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; }
+        .ui-content { background-color: #444; -webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px;}
+        .ui-footer { background-color: #e5e5e5; }
+        .ui-footer:after { content: 'x'; display: inline-block;
+            height: 0;
+            width: 0;
+            line-height: 9999px;;
+            top: -2px;
+            overflow: hidden;
+            position: relative;
+            border-width: 12px;
+            border-style: solid;
+            border-color: #444 transparent  transparent transparent;
+        }
+    </style>
+</head>
+<body class="bgc-gray" id="home-page">
+    <div class="ui-page ui-page-active">
+        <div class="box pb24 pt24 bgc-red">
+            <img class="ml36 circle" src="{% if data['headimg'] %}{{ data['headimg'] }}{% else %}/static/images/icon_default.png{% end %}" width="64" height="64"/>
+            <div class="header-second flex1 box vertical bpr fc-white">
+                <p class="fs-16 relative tar mr36">
+                    我的余额（元）
+                </p>
+                <strong class="money fs-28 tar db text mr36 nowrap">200.00</strong>
+            </div>
+        </div>
+        <div class="box bgc-oranger bac fc-white pt12 pb12 fs-14">
+            <span class="mr12 ml12 relative top-1">今日</span>
+            <span class="flex1 flex-fixed box bpc nowrap">任务收益 <strong class="fs-16">{{ data['earn'] }} </strong>元</span>
+            <span class="flex1 flex-fixed box bpc nowrap">收入学徒 <strong class="fs-16">{{ data['invite'] }} </strong>个</span>
+        </div>
+        <div class="box mt5 mb5 fs-16 relative">
+            <a class="flex1 box bgc-white bac p16 pt12 pb12 ml8 mr3" href="{{ url['detail'] }}">
+                <i class="icon icon-detail-s mr8"></i>
+                <span class="box bpl">明细</span>
+            </a>
+            <a class="flex1 box bgc-white bac p16 pt12 pb12 mr8 ml3" href="{{ url['config'] }}">
+                <i class="icon icon-setting-s mr8"></i>
+                <span class="box bpl">设置</span>
+            </a>
+        </div>
+        <ul class="list list-border bgc-white fs-16">
+            <li data-ck="1">
+                <a class="box bac" href="{{ url['earn'] }}">
+                    <i class="icon icon-money mr12"></i>
+                    <span class="box bpl">赚钱</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计有{{ data['total_users'] }}人参与
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="{{ url['invite'] }}">
+                    <i class="icon icon-prentice mr12"></i>
+                    <span class="box bpl">收徒</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计有{{ data['total_sons'] }}人拜师
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="{{ url['exchange'] }}">
+                    <i class="icon icon-exchange mr12"></i>
+                    <span class="box bpl">兑换</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计兑换{{ data['total_exchange'] }}元
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script id="tpl-into-destop" type="text/template">
+        <div class="destop-tip box bpc">
+            <div class="ui-panel ml12 mr12 round">
+                <div class="ui-header box bac g6 p12 fc-white pt6 pb6">
+                    <span class="box fs-16 top-1 relative">添加[钱鹿]到桌面</span>
+                    <div class="flex1 box fs-12 bpr bac">
+                        <a class="flex1 icon top-2 relative icon-close-small btn-close" href="###" data-ck="2"> </a>
+                    </div>
+                </div>
+                <div class="ui-content box bac bpl fs-14 p12 pt12 pb12">
+                    <img class="box mr8" src="/static/images/destop/icon_icon.png" width="30" height="30" />
+                    <div class="tal flex1 box fc-white vertical">
+                        <p>先点击<img class="ml8 mr3 relative top-1" src="/static/images/destop/icon_menu.png" width="15" height="20"/> 在弹窗框中</p>
+                        <p class="mt3 mb3">选择<img class="ml8 mr3 relative top-3" src="/static/images/destop/icon_puls.png" width="20" height="20"/> 添加到主屏幕</p>
+                    </div>
+                </div>
+                <div class="ui-footer box bac bpc">
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/lib/zepto/1.1.6/zepto.js"></script>
+    <script src="/static/assets/md5.js"></script>
+    <script src="/static/assets/api.js"></script>
+    <script src="/static/assets/main.js"></script>
+    <script>
+        window.PD = {
+//            time: {{ data['first'] }}
+        }
+
+        $(function() {
+            QL.Main.start('home');
+            var money = parseFloat('12122.13').toFixed(2) * 100;
+            var i = 0;
+            var t = money / 50;
+            var time = setInterval(function() {
+                i = i + t;
+                if(i <= money) {
+                    var result = (i / 100).toFixed(2);
+                    $('.money').html(API.numFormat(result, 2));
+                }
+                else {
+                    var result = (money / 100).toFixed(2);
+                    $('.money').html(API.numFormat(result, 2));
+                    window.clearInterval(time);
+                }
+            }, 12);
+        });
+
+    </script>
+</body>
+</html>

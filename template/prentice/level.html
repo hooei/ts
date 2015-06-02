@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--我的等级</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list { border-left: 5px solid #ea1e63; padding-bottom: 8px; }
+        .list li { padding: 12px 12px 0 12px; margin: 0;}
+        .btn { padding: .625em 3em;}
+        li.border { padding-bottom: 8px; }
+        .ui-panel { height: 92px; padding: 0 8px; }
+        .progress { background-color: #ccc; margin: 0 5px 0 8px; border-radius: 3px; }
+        .progress-bar { position: absolute; top: 0; left: 0; height: 100%; max-width: 100%; border-radius: 3px; background-color: #e75735;}
+        .progress-text { position: relative; z-index: 2; }
+        .will {
+            position: relative;
+        }
+        .panel-now {
+            padding: 0 20px;
+            /*border-bottom: 1px solid #ccc;*/
+            /*border-bottom: 1px dashed #ccc;*/
+            -webkit-box-shadow: 0 3px 6px #ccc;
+        }
+        .panel-next {
+            position: relative;
+            height: 90px;
+            background-color: #fff;
+            /*border: 1px dashed #ccc;*/
+            /*border-top: none;*/
+            /*border-bottom: none;*/
+            margin: 10px 12px 0;
+        }
+        /*.panel-next:before {*/
+            /*content: '';*/
+            /*position: absolute;*/
+            /*left: -8px;*/
+            /*top: -1px;*/
+            /*z-index: 2;*/
+            /*display: block;*/
+            /*width: 0;*/
+            /*height: 0;*/
+            /*border-width: 4px;*/
+            /*border-style: solid;*/
+            /*border-color: #cbcbcb #cbcbcb transparent transparent;*/
+        /*}*/
+        /*.panel-next:after {*/
+            /*content: '';*/
+            /*position: absolute;*/
+            /*right: -8px;*/
+            /*top: -1px;*/
+            /*z-index: 2;*/
+            /*display: block;*/
+            /*width: 0;*/
+            /*height: 0;*/
+            /*border-width: 4px;*/
+            /*border-style: solid;*/
+            /*border-color: #cbcbcb transparent transparent #cbcbcb;*/
+        /*}*/
+        .panel-will {
+            margin: 10px 12px 0;
+            height: 86px;
+            color: #a1a1a1;
+            background-color: #ddd;
+            border: 1px dashed #d4d4d4;
+        }
+        .star {
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSLlm77lvaIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAyNnB4IiBoZWlnaHQ9IjEwMjRweCIgdmlld0JveD0iMCAwIDEwMjYgMTAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAyNiAxMDI0IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8cGF0aCBmaWxsPSIjZTc1NzM1IiBkPSJNMTAyNS4yMzIgNDEzLjExNSA2ODEuNTggNDc3Ljk5NyA1MTIuNjE2IDc3OS4xODUgMzQzLjY1MiA0NzcuOTk3IDAgNDEzLjExNSAyMzkuMjIzIDE2Mi4wOTYgMTk1Ljc5LTE3OS4xODUgNTEyLjYxNi0zMy4xMzkgODI5LjQzMS0xNzkuMTg1IDc4Ni4wMTEgMTYyLjA5NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDgxMikgc2NhbGUoMSwgLTEpIi8+Cjwvc3ZnPgo=');
+            /*background-image: url('http://w.qiandeer.com/qd/static/images/icon_level_red.png');*/
+            background-size: cover;
+            margin-top: -10px;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 33px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .star:after {
+            content: '';
+            display: block;
+            height: 3px;
+            margin: 4px 3px 0;
+            background-color: #e75735;
+        }
+        .panel-next .star {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            line-height: 28px;
+            font-size: 13px;
+        }
+        .panel-will .star {
+            width: 26px;
+            height: 26px;
+            margin-right: 12px;
+            line-height: 28px;
+            font-size: 12px;
+            color: #ddd;
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSLlm77lvaIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAyNnB4IiBoZWlnaHQ9IjEwMjRweCIgdmlld0JveD0iMCAwIDEwMjYgMTAyNCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAyNiAxMDI0IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8cGF0aCBmaWxsPSIjYmJiYmJiIiBkPSJNMTAyNS4yMzIgNDEzLjExNSA2ODEuNTggNDc3Ljk5NyA1MTIuNjE2IDc3OS4xODUgMzQzLjY1MiA0NzcuOTk3IDAgNDEzLjExNSAyMzkuMjIzIDE2Mi4wOTYgMTk1Ljc5LTE3OS4xODUgNTEyLjYxNi0zMy4xMzkgODI5LjQzMS0xNzkuMTg1IDc4Ni4wMTEgMTYyLjA5NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDgxMikgc2NhbGUoMSwgLTEpIi8+Cjwvc3ZnPgo=");
+        }
+        .panel-will .star:after {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body class="bgc-gray pt44" id="prentice-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/home"> < </a></i>
+        <h1>我的等级</h1>
+    </div>
+    <div class="ui-page ui-page-active">
+
+    </div>
+    <script id="tpl-level-now" type="text/template">
+        <div class="panel-now ui-panel bgc-white fs-16 box bac bpc mt5 ml5 mr5">
+            <i class="db star mr24">{=level}</i>
+            <div class="box vertical flex1">
+                <span class="db fc-gray fs-12">当前等级</span>
+                <strong class="box mt8 fw-n">
+                    <span class="fc-oranger">Lv{=level}</span>
+                    {=title}
+                    <span class="fc-gray ml8 fs-12">徒弟奖励为<span class="fc-oranger">{=prize}%</span></span>
+                </strong>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-level-next" type="text/template">
+        <div class="panel-next ui-panel bgc-white fs-16 box bac bpc">
+            <i class="db star mr12">{=level}</i>
+            <div class="box vertical flex1">
+                <strong class="fw-n fc-gray">
+                    <span class="fc-oranger">Lv{=level}</span>{=title}<span class="fs-11 fc-gray ml8">奖励：徒弟奖励增至<span class="fc-oranger">{=prize}%</span></span>
+                </strong>
+                <div class="box fc-gray mt5 fs-11">
+                    <span>累计徒弟(名)：</span>
+                    <div class="flex1 relative box bac bpc progress">
+                        <div class="progress-text fc-white">{=hadSon}/{=son}</div>
+                        <div class="progress-bar" style="width: {=progressSon}%"></div>
+                    </div>
+                </div>
+                <div class="box mt5 fc-gray fs-11">
+                    <span>累计收入(元)：</span>
+                    <div class="flex1 relative box bac bpc progress">
+                        <div class="progress-text fc-white">{=hadMoney}/{=money}</div>
+                        <div class="progress-bar" style="width: {=progressMoney}%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-level-will" type="text/template">
+        <div class="panel-will ui-panel bgc-white fs-16 box will bac bpc">
+            <i class="db star mr12">{=level}</i>
+            <div class="box vertical flex1 fs-11">
+                <strong class="fs-16 fw-n">
+                    <span>Lv{=level}</span>{=title}<span class="fs-11 ml8">奖励：徒弟奖励增至<span class="fc-oranger">{=prize}%</span></span>
+                </strong>
+                <div class="box mt8">
+                    升级要求：累计任务收入{=money}元＋累计徒弟{=son}名
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-level-top" type="text/template">
+        <div class="ml18 mr18 mt12 pb24 tac bgc-white">
+            <img class="dib mt36 round" src="http://w.qiandeer.com/qd/static/images/destop/icon144.png" width="72" height="72">
+            <p class="mt12">一款能赚钱的app</p>
+            <div class="tal" style="width: 60%; margin: 48px auto 0;">
+                <p class="mt6">累计收入：<span class="fc-oranger">{=money}</span>元</p>
+                <p class="mt6">累计徒弟：<span class="fc-oranger">{=son}</span>人</p>
+                <p class="mt6">累计徒孙：<span class="fc-oranger">{=gradeSon}</span>人</p>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+
+    <script>
+        var PD = {
+            level: {{data['level']}},
+            hadSon:   {{data['hadSon']}},
+            hadMoney: {{data['hadMoney']}},
+            hadGrandSon: {{data['hadGrandSon']}},
+            require:  [
+            {% for d in data['require'] %}
+                {level: {{d['level']}}, title: "{{d['title']}}", money: {{d['money']}}, son: {{d['son']}}, prize: {{d['prize']}} },
+                /*{level: 2, title: '初创师门', money: 10, son: 5, prize: 10},
+                {level: 3, title: '小有成就', money: 10, son: 5, prize: 10},*/
+
+            {% end %}
+            ]
+
+//            level: 2,
+//            hadSon: 10,
+//            hadMoney: 150,
+//            hadGrandSon: 140,
+//            require: [
+//                {level: 0, title: '初入江湖', money: 10, son: 5, prize: 10},
+//                {level: 1, title: '初入江湖', money: 10, son: 5, prize: 10},
+//                {level: 2, title: '初创师门', money: 10, son: 5, prize: 10},
+//                {level: 3, title: '小有成就', money: 200, son: 20, prize: 10},
+//                {level: 4, title: '小有成就', money: 200, son: 20, prize: 10},
+//                {level: 5, title: '小有成就', money: 200, son: 20, prize: 10},
+//            ]
+        }
+
+        $(function() {
+            QL.Main.start('prentice');
+
+            var len = PD.require.length;
+            PD.require.forEach(function(item) {
+                var level = {};
+                var status = '';
+                if (item.level === PD.level) {
+                    status = 'now';
+                }
+                else if (item.level === (PD.level + 1)) {
+                    status = 'next';
+                    item['progressSon'] = (PD.hadSon / item.son) * 100 > 100 ? 100 : (PD.hadSon / item.son) * 100;
+                    item['progressMoney'] = (PD.hadMoney / item.money) * 100 > 100 ? 100 : (PD.hadMoney / item.money) * 100;
+                }
+                else if (item.level > (PD.level + 1)) {
+                    status = 'will';
+                }
+                if (status) {
+                    item['hadSon'] = PD.hadSon;
+                    item['hadMoney'] = PD.hadMoney;
+                    var $one = $(API.strFormat('#tpl-level-{0}', status)).tmpl(item);
+                    $('.ui-page').append($one);
+                }
+            });
+            // 最后一级
+            if (PD.level === (len - 1)) {
+                $('.ui-page').append($('#tpl-level-top').tmpl({money: PD.hadMoney, son: PD.hadSon, gradeSon: PD.hadGrandSon}));
+            }
+        })
+
+    </script>
+</body>
+</html>

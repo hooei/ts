@@ -1,0 +1,68 @@
+mysql:
+    host: "localhost"
+    database: qianka
+    user: qianka
+    password: qianka
+    time_zone: '+8:00'
+
+redis:
+    host: "127.0.0.1"
+    port: 6379
+    db: 0
+
+tornado:
+    debug: True
+    autoreload: True
+
+app:
+    name: "钱鹿"
+
+secret:
+    cookie: "a018c382fd8860db065aba72b4c2941a41b22ad8"
+    session: "59442ebf8ae1ed60be92c263856cc5c0ff0c158b"
+
+ymappid:
+    ios: "fb6f78480618ebe0"
+    aos: "123123"
+
+ymsecret:
+    ios: "c5f2dcf6daff5b2c"
+    aos: "1123123123456123"
+
+ymserver_key:
+    ios: "123123"
+    aos: "123123"
+
+url:
+    base: "http://192.168.200.93:8887"
+    # base: "http://test.qiandeer.ymapp.com"
+    ssl: ""
+    api: ""
+
+duiba:
+    appKey: "2x1LvFvWiHu1DNapk6nKbaQgZQak"
+    appSecret: "g96bgb6tGvUzwsw9JoqjSttLhd3"
+
+crypt:
+    aeskey: "wJ4goGMwa7eBcKiP"
+
+tui3:
+    apikey: "e572e6e3d160c22c6fd617aede049199"
+
+ytx:
+    url: "https://sandboxapp.cloopen.com:8883"
+    acid: "aaf98f894d2d8455014d2daba0280048"
+    actoken: "42aa8a754655490ba18f1fd6c52073df"
+    appid: "8a48b5514d2d8602014d3126ce02020c"
+    #appid: "aaf98f894ae167eb014ae16cdc7f0001"
+
+log:
+    debug: "/data/log/qianka/debug.log"
+    device: "/data/log/qianka/device.log"
+    error: "/data/log/qianka/error.log"
+    duiba: "/data/log/qianka/duiba.log"
+    callback: "/data/log/qianka/callback.log"
+    getmsg: "/data/log/qianka/getmsg.log"
+    user: "/data/log/qianka/user.log"
+    adyoumi: "/data/log/qianka/adyoumi.log"
+    bound: "/data/log/qianka/bound.log"

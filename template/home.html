@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <!--<meta name="viewport" content="width=320, user-scalable=0, minimal-ui">-->
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <link rel="apple-touch-icon-precomposed" href="http://w.qiandeer.com/qd/static/images/destop/icon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://w.qiandeer.com/qd/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://w.qiandeer.com/qd/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://w.qiandeer.com/qd/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="http://w.qiandeer.com/qd/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .list li { padding: 6px 4px 6px 12px; }
+        .list li:active { background-color: #ececec; }
+        .destop-tip {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            opacity: 1;
+            -webkit-transform: translate3d(0, 10px, 0);
+            -webkit-animation-delay: 0s;
+            -webkit-animation-duration: 512ms;
+            -webkit-animation-name: up;
+        }
+        @-webkit-keyframes up { from { opacity: 0.8; -webkit-transform: translate3d(0, 20px, 0)}
+            to { opacity: 1; -webkit-transform: translate3d(0, 10px, 0)} }
+        .destop-tip .ui-panel { width: 212px!important; }
+        .destop-tip .ui-header { background-color: #4eb7a8; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; }
+        .ui-content { background-color: #444; -webkit-border-bottom-left-radius: 8px; -webkit-border-bottom-right-radius: 8px;}
+        .ui-footer:after { content: 'x'; display: inline-block;
+            height: 0;
+            width: 0;
+            line-height: 9999px;;
+            top: -2px;
+            overflow: hidden;
+            position: relative;
+            border-width: 12px;
+            border-style: solid;
+            border-color: #444 transparent  transparent transparent;
+        }
+        .round-top {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .bgc-pack {
+            background-color: #d63830;
+        }
+        .list .icon { display: -webkit-box; margin: 5px 8px 5px 0; }
+        .trigon {
+            height: 0;
+            width: 0;
+            line-height: 9999px;;
+            overflow: hidden;
+            position: relative;
+            border-width: 32px 13px;
+            border-style: solid;
+            border-color: transparent #d63830 #d63830 transparent;
+        }
+        .trigon-opposite {
+            border-color: transparent transparent #d63830 #d63830;
+        }
+        .red-pack {
+            width: 256px;
+        }
+        .red-pack-top {
+            position: relative;
+        }
+        .red-pack-top img {
+            position: absolute;
+            bottom: 0;
+            left: 2%;
+            width: 96%;
+        }
+        .line { border-top: 1px solid #db5332; margin: 0 12px; }
+        .icon-today-s { position: relative; top: 1px; }
+        .icon-money-s { position: relative; top: 9px; }
+        .money-text { position: relative; top: 8px; }
+        .money { font-size: 40px; }
+        .yellow { font-size: 12px; color: #dbff78; }
+        .active-moon { position: relative; width: 250px; -webkit-box-sizing: border-box; background-color: #e75735; border-radius: 10px; font-size: 10px; text-align:justify; font-weight: 700; -webkit-box-shadow: 0 4px 1px #db3f18;}
+        .active-moon:after { content: ''; position: absolute; z-index: 1; left: 0; top: 7px; width: 100%; height: 100px; background: url('http://w.qiandeer.com/qd/static/images/active/moon/pic_xian.png') no-repeat center 0; background-size: 100% auto; }
+        .active-moon-title { font-size: 36px; }
+        .active-moon ul li { margin-top: 5px; }
+        .active-text { position: absolute; top: 0; left:0; width: 100%; font-size: 10px; }
+        .active-time { position: relative; padding-left: 15px; }
+        .active-money { position: relative; z-index: 2; width: 44px; height: 44px; background: url('http://w.qiandeer.com/qd/static/images/active/moon/pic_money.png') no-repeat center 0; background-size: 44px 44px; margin: 8px auto 0; }
+        .active-time:before { content: ''; position: absolute; left: 0; top: 2px; display: block; width: 10px; height: 10px; background: url('http://w.qiandeer.com/qd/static/images/active/moon/pic_time.png') no-repeat; background-size: 10px 10px; }
+        .menu-item { position: relative; }
+        .menu-item:active {
+            background-color: #ececec;
+        }
+        .menu-level:after {
+            content: '新';
+            position: absolute;
+            display: none;
+            right: 5px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            color: #fff;
+            font-size: 11px;
+            text-align: center;
+            line-height: 16px;
+            background-color: #e75735;
+            border-radius: 50%;
+        }
+
+        /** 土豪行动 */
+        .active-rich{position:relative;width:240px;padding-top:36px;-webkit-box-sizing:border-box;color:#fc7524;background:url('http://w.qiandeer.com/qd/static/images/active/rich/bg.png') no-repeat;background-size:240px auto;border-radius:5px;font-size:10px;text-align:justify;font-weight:700}.btn-rich{background-image:url('http://w.qiandeer.com/qd/static/images/active/rich/pic_02.svg');background-size:contain;background-repeat:no-repeat;padding:10px 20px;border:3px solid #fff;font-size:14px;color:#fff;border-radius:20px;background-color:#03a3f3;webkit-box-shadow:0 3px 1px #e9c001}.btn-rich-text{margin:0 1px;font-size:22px;color:#ffda39;position:relative;top:1px}.coin{position:absolute;top:-100px;width:40px;height:40px;left:0;-webkit-transform:translateY(0);-webkit-animation-name:fall;-webkit-animation-delay:10ms;-webkit-animation-duration:3500ms;-webkit-animation-fill-mode:none;-webkit-animation-direction:normal;-webkit-animation-iteration-count:9999}.coin:nth-child(2){left:50px;-webkit-animation-delay:100ms}.coin:nth-child(3){left:80px;width:48px;height:48px;-webkit-animation-delay:2600ms}.coin:nth-child(4){left:140px;width:48px;height:48px;-webkit-animation-delay:1400ms}.coin:nth-child(5){left:180px;width:48px;height:48px;-webkit-animation-delay:200ms}.coin:nth-child(6){left:260px;-webkit-animation-delay:1150ms}.coin:nth-child(7){left:257px;-webkit-animation-delay:600ms}.coin:nth-child(8){left:280px;-webkit-animation-delay:3000ms}.coin:nth-child(9){right:0;-webkit-animation-delay:1000ms}.coin:nth-child(10){right:40px;width:48px;height:48px;-webkit-animation-delay:1800ms}.coin:nth-child(11){right:-100px;width:48px;height:48px;-webkit-animation-delay:2400ms}.coin:nth-child(12){right:-170px;width:48px;height:48px;-webkit-animation-delay:1100ms}@-webkit-keyframes fall{from{opacity:.8}to{opacity:1;-webkit-transform:translateY(2000%)}}@media screen and (device-width: 320px) and (device-height: 480px),
+        screen and (device-width: 480px) and (device-height: 320px){.coins,.coin{display:none}}
+
+        /** 米禾活动 */
+        .flow-box {
+            background-color: #d63830;
+            width: 240px;
+            border-radius: 6px;
+        }
+        .flow-box-notice .flow-header img{
+            position: relative;
+            margin-top: -18px;
+        }
+        .flow-header img {
+            position: relative;
+            margin-top: -10px;
+        }
+        .notice { width: 100%;  font-size: 12px; background-color: #e75735; }
+        .notice a { color: #fff; background-color: rgba(0,0,0,0.2); display: block; padding: 6px 0; }
+
+        /** 粉丝节 */
+        .fan-body { background-color: #ff634a; width: 270px; height: 176px; }
+        .fan-content { position: absolute; text-align: left; top: 22px; left: 16px; width: 236px; height: 218px; background-color: #fede29; }
+        .fan-content:before { content: ''; display: inline-block; position: relative; left: -4px; width: 5px; height: 218px; background: url("http://w.qiandeer.com/qd/static/images/active/fan/pic_may_side.png") 0 0 no-repeat; background-size: 5px 219px; }
+        .fan-content:after { content: ''; display: inline-block; position: relative; right: -5px; -webkit-transform: scaleX(-1); width: 5px; height: 218px; background: url("http://w.qiandeer.com/qd/static/images/active/fan/pic_may_side.png") 0 0 no-repeat; background-size: 5px 219px; }
+        .btn-fan {
+            position: relative;
+            top: -65px;
+            padding: 8px 30px;
+            border-radius: 20px;
+            background-color: #bf3acf;
+            border: none;
+            -webkit-box-shadow: 0 4px 0px #7b2b98;
+        }
+        .btn-fan:active {
+            position: relative;
+            top: -63px;
+            border: 1px solid transparent;
+            border: none;
+            background-color: #bf3acf;
+            -webkit-box-shadow: 0 2px 0px #7b2b98;
+        }
+    </style>
+</head>
+<body class="bgc-gray" id="home-page">
+    <div class="notice tac">
+        <a href="http://qiandeer.com/ipa/latest">通知：最新钱鹿助手版本为14.5，请点击更新！</a>
+    </div>
+    <div class="ui-page ui-page-active mb12">
+        <div class="header bgc-red">
+            <div class="box pb8 pt8 bgc-red">
+                <div class="flex2 flex-fixed box vertical bac bpc pb3 pt3">
+                    <img class="circle db" src="{% if data['headimg'] %}{{ data['headimg'] }}{% else %}http://w.qiandeer.com/qd/static/images/icon_default.png{% end %}" width="54" height="54"/>
+                    <p class="mt6 box bpr fc-white tar fs-14 nowrap">
+                        ID：{{ data['tid'] }}
+                    </p>
+                    <a class="fs-12 fc-white tal db mt3 fw-b" href="/card">我的二维码</a>
+                </div>
+                <div class="header-second flex3 flex-fixed box vertical bar bpc fc-white mr24">
+                    <p class="fs-14 box bac bpc mt3 mt16 pt6">
+                        <i class="icon icon-money-s"></i>
+                        <span class="money-text box ml8">余额(元)</span>
+                    </p>
+                    <span class="box money nowrap mt8">{{ data['money'] }}</span><span></span>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="box bgc-red bac bpc fc-white pt3 pb3 fs-14 nowrap">
+                <i class="icon icon-today-s ml12"></i>
+                <span class="box ml12">今日收获：</span>
+                <span class="box bpc nowrap">收益 <strong class="fs-14 unit-earn">{{ data['earn'] }} </strong>元，</span>
+                <span class="box bpc nowrap">收徒 <strong class="fs-14 unit-invite">{{ data['invite'] }}</strong>个</span>
+            </div>
+        </div>
+        <div class="box mt6 mb6 fs-16 relative">
+            <a class="menu-level menu-item flex1 box bgc-white bac p16 pt8 pb8 ml6 mr3" href="{{ url['level'] }}">
+                <i class="icon icon-star-s mr8"></i>
+                <span class="box bpl">等级</span>
+            </a>
+            <a class="menu-item flex1 box bgc-white bac p16 pt8 pb8 ml3 mr3" href="{{ url['detail'] }}">
+                <i class="icon icon-detail-s mr8"></i>
+                <span class="box bpl">明细</span>
+            </a>
+            <a class="menu-item flex1 box bgc-white bac p16 pt8 pb8 mr6 ml3" href="{{ url['config'] }}">
+                <i class="icon icon-setting-s mr8"></i>
+                <span class="box bpl">设置</span>
+            </a>
+        </div>
+        <ul class="list list-border bgc-white fs-16">
+            <li data-ck="1">
+                <a id="earn-url" class="box bac" href="{{ url['earn'] }}">
+                    <i class="icon icon-money mr12"></i>
+                    <span class="box bpl">赚钱</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计有<span class="unit-total-users">{{ data['total_users'] }}</span>人参与
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac bpc" href="{{ url['invite'] }}">
+                    <div class="active-text mt3 fc-oranger hide">
+                        <span class="db pull-left ml12" style="position: relative; top: -4px;">“粉丝节”&nbsp&nbsp&nbsp&nbsp人人都是VIP！</span>
+                        <span class="db active-time pull-right mr24"></span>
+                    </div>
+                    <i class="box icon icon-prentice mr12"></i>
+                    <span class="box bpl">收徒</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计有<span class="unit-total-sons">{{ data['total_sons'] }}</span>人拜师
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="{{ url['exchange'] }}">
+                    <i class="icon icon-exchange mr12"></i>
+                    <span class="box bpl">兑换</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            累计兑换<span class="unit-total-exchange">{{ data['total_exchange'] }}</span>元
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/fun/lottery">
+                    <i class="icon icon-lottery mr12"></i>
+                    <span class="box bpl">抽奖</span>
+                    <span class="flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            每天都有机会赢大奖
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script id="tpl-into-destop" type="text/template">
+        <div class="destop-tip box bpc">
+            <div class="ui-panel ml12 mr12 round">
+                <div class="ui-header box bac g6 p12 fc-white pt6 pb6">
+                    <span class="box fs-16 top-1 relative">添加[钱鹿]到桌面</span>
+                    <div class="flex1 box fs-12 bpr bac">
+                        <a class="flex1 icon top-2 relative icon-close-small btn-close" href="###" data-ck="2"> </a>
+                    </div>
+                </div>
+                <div class="ui-content box bac bpl fs-14 p12 pt12 pb12">
+                    <img class="box mr8" src="http://w.qiandeer.com/qd/static/images/destop/icon_icon.png" width="30" height="30" />
+                    <div class="tal flex1 box fc-white vertical">
+                        <p>先点击<img class="ml8 mr3 relative top-1" src="http://w.qiandeer.com/qd/static/images/destop/icon_menu.png" width="15" height="20"/> 在弹窗框中</p>
+                        <p class="mt3 mb3">选择<img class="ml8 mr3 relative top-3" src="http://w.qiandeer.com/qd/static/images/destop/icon_puls.png" width="20" height="20"/> 添加到主屏幕</p>
+                    </div>
+                </div>
+                <div class="ui-footer box bac bpc">
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-fill-box" type="text/template">
+        <div class="red-pack ui-panel fc-white fs-16">
+            <div class="tac box red-pack-top">
+                <div class="trigon"></div>
+                <p class="fs-18 flex1 bgc-pack pt12">欢迎加入钱鹿</p>
+                <div class="trigon trigon-opposite"></div>
+                <img src="http://w.qiandeer.com/qd/static/images/red-pack/pic_redbag_money.png"/>
+            </div>
+            <div class="p24 fs-14 pt12 tac pb16 bgc-pack radius-bottom">
+                <p class="mt8 ml12">恭喜您获得钱鹿的新手红包。</p>
+                <p class="mt8">输入邀请人ID，将得到３元</p>
+                <div class="mt12 box bal vertical">
+                    <span class="mr8 fs-12">输入ID</span>
+                    <input class="form-field flex1 mt3" type="text" name="uid"/>
+                </div>
+                <div class="mt16">
+                    <a class="btn-bound btn btn-secondary big radius pack-btn-normal" data-type="1">获得３元（填写ID）</a>
+                    <a class="btn-bound btn btn-secondary big mt16 radius" data-type="2">获得２元（不填ID）</a>
+                </div>
+            </div>
+        </div>
+
+    </script>
+    <script id="tpl-show-bound" type="text/template">
+        <div class="red-pack ui-panel fc-white fs-16">
+            <div class="tac box red-pack-top">
+                <div class="trigon"></div>
+                <p class="fs-18 flex1 bgc-pack pt12">恭喜获得新手红包</p>
+                <div class="trigon trigon-opposite"></div>
+                <img src="http://w.qiandeer.com/qd/static/images/red-pack/pic_redbag_money.png"/>
+            </div>
+            <div class="p24 fs-18 tac pb12 bgc-pack radius-bottom">
+                <div class="pt24">
+                    您获得{=money}元的新手红包
+                </div>
+                <div class="mt24 mb8">
+                    <a class="btn-close-bound btn btn-secondary big radius">确定</a>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-active" type="text/template">
+        <div class="active-moon ui-panel fc-white p12">
+            <p class="active-moon-title tac fs-30 pt8">钱鹿满月酒</p>
+            <div class="active-money"></div>
+            <p class="mt16">不知不觉钱鹿已满40天，现正式邀请一直默默支持的小鹿们来喝满月酒啦！来者不拒哦！上大菜啦~~</p>
+            <ul class="unstyled mt16 pb16 ml5">
+                <li>1 .每成功收一个新徒弟，师傅直接获得<span class="yellow">1元</span>奖励！</li>
+                <li>2 .奖励将在徒弟完成第一个任务后立即到帐。</li>
+                <li>3 .收徒奖励<span class="yellow"> 无上限</span>，“限时推荐”<span class="yellow"> 100％ </span>返现！</li>
+                <li>4 .活动时间：2015年4月2日至2015年4月9日</li>
+            </ul>
+        </div>
+    </script>
+    <script id="tpl-active-1" type="text/template">
+        <div class="coins">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin2.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin2.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin2.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin2.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin2.png">
+            <img class="coin" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_coin.png">
+        </div>
+        <div class="active-rich ui-panel fc-white p12 tac">
+            <div class="tac pt12">
+                <img class="dib" src="http://w.qiandeer.com/qd/static/images/active/rich/pic_title.png" width="174" height="44">
+            </div>
+            <p class="tac fs-14">收一得“二”，积“二”成壕！</p>
+            <ul class="unstyled mt16 pb12 ml5 fs-10 tac" style="color: #e3b412; ">
+                <li>奖励将在徒弟完成第一个任务后立即到帐</li>
+                <li>活动时间：2015.4.22-2015.4.29</li>
+            </ul>
+            <div class="tac pb24">
+                <a class="btn-rich">收徒<span class="btn-rich-text">1</span>个，立得<span class="btn-rich-text">2</span>元</a>
+            </div>
+        </div>
+    </script>
+    <!-- 粉丝节 -->
+    <script id="tpl-active-2" type="text/template">
+        <div class="ui-panel fc-white tac relative">
+            <img class="db" src="http://w.qiandeer.com/qd/static/images/active/fan/pic_may_top.png" alt="头部" width="270" height="65"/>
+            <div class="fan-body"></div>
+            <img class="db" style="position: relative; top: -2px;" src="http://w.qiandeer.com/qd/static/images/active/fan/pic_may_bottom.png" width="270" height="107">
+            <div class="fan-content box">
+                <div class="flex1 db fs-13" style="padding-left: 0px; ">
+                    <div class="tac">
+                        <img class="dib mt8" src="http://w.qiandeer.com/qd/static/images/active/fan/pic_fans_day_title.png" alt="" width="147" height="61"/>
+                    </div>
+                    <h3 class="mt12 mb3 fw-b fs-13 fc-oranger" >活动奖励:<span class="fs-12" style="color: #f34f34;">（新增徒弟为标准）</span></h3>
+                    <ul class="unstyled fs-11 mt8" style="line-height: 14px; color: #8d6a20; ">
+                        <li>徒弟数<span class="fc-oranger fw-b">【1~9】</span>，师傅每收一徒弟奖励<span class="fc-oranger fw-b"> 2元</span></li>
+                        <li>徒弟数<span class="fc-oranger fw-b">【10~49】</span>，师傅每收一徒弟奖励<span class="fc-oranger fw-b"> 2.5元</span></li>
+                        <li>徒弟数<span class="fc-oranger fw-b">【50以上】</span>，师傅每收一徒弟奖励<span class="fc-oranger fw-b"> 3元</span></li>
+                    </ul>
+                    <p class="fw-b fs-13 mt8 fc-oranger">活动时间:<span class="fs-10 fw-n" style="color: #f34f34;">&nbsp;&nbsp;2015.5.27~2015.05.31</span></p>
+                    <p class="mt5 ml12" style="color: #8d6a20;font-size: 8px;">注</p>
+                    <ul class="unstyled ml12" style="line-height: 10px;font-size: 9px;letter-spacing: 0px; color: #8d6a20;">
+                        <li>1、要求为真实用户，若发现有作弊行为立即封号</li>
+                        <li>2、收徒奖励将在徒弟完成第一个限时任务后立即到帐</li>
+                    </ul>
+                </div>
+            </div>
+            <a class="btn-fan btn btn-success">我知道了</a>
+        </div>
+    </script>
+    <script id="tpl-flow" type="text/template">
+        <div class="flow-box ui-panel fc-white fs-16">
+            <div class="flow-header tac box vertical bpc">
+                <div class="box">
+                    <p class="fs-20 flex1 pt12 fw-b ml24">注册就送10M流量</p>
+                    <a href="javascript: void(0);" id="flow-close" class="icon icon-close-small mr8 mt8 db"></a>
+                </div>
+                <img class="dib" src="http://w.qiandeer.com/qd/static/images/active/flow/pic_red.svg" width="236" height="51">
+                <p class="mt5 fs-12 ml8 pb8">试玩应用立得2元！满10元即可提现！</p>
+            </div>
+            <div class="p16 mt6 fs-14 tac pb16 radius-bottom">
+                <div class="box bal vertical">
+                    <input class="form-field flex1 mt3" type="text" name="phone" placeholder="填写手机号"/>
+                </div>
+                <div class="mt16 box bac">
+                    <input class="form-field flex1" type="text" name="code" placeholder="输入验证码"/>
+                    <a href="javascript: void(0);" id="flow-code" class="btn btn-s btn-secondary radius ml6 p6 pt3 pb3" data-loading-text="正在获取中">获取验证码</a>
+                </div>
+                <a href="javascript: void(0);" id="flow-submit" class="btn btn-secondary big mt16 radius">提交获得10M流量</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-flow-notice" type="text/template">
+        <div class="flow-box flow-box-notice ui-panel fc-white fs-16">
+            <div class="flow-header tac box vertical bpc">
+                <p class="fs-24 flex1 pt12 fw-b">恭喜你</p>
+                <p class="fs-18 flex1 fw-b">成功获得10M流量</p>
+                <img class="dib" src="http://w.qiandeer.com/qd/static/images/active/flow/pic_red.svg" width="236" height="51">
+            </div>
+            <div class="p12 mt6 fs-12 tal pb16 radius-bottom fw-n">
+                <p>您的流量将在两个工作日内充值到您的手机号内！</p>
+                <p class="mt6">在钱鹿体验应用、收取徒弟都能获得现金奖励哦！马上开启赚钱之旅！</p>
+                <a href="javascript: void(0);" id="flow-success" class="btn btn-secondary big mt16 radius">开始赚钱之旅</a>
+            </div>
+        </div>
+    </script>
+    <script id="tpl-flow-finish" type="text/template">
+        <div class="flow-box flow-box-notice ui-panel fc-white fs-16">
+            <div class="p12 mt6 fs-12 tal pb16 pt16 radius-bottom fw-n">
+                <p class="tac">5000份流量包已被领完</p>
+                <p class="tac">本活动已经结束，感谢你的参与。</p>
+            </div>
+        </div>
+    </script>
+
+    <script src="/static/dist/070-common.js"></script>
+
+    <script>
+        window.PD = {
+            bound       : {{ data['bound']}},
+            money       : {{ data['newmoney']}},
+            totalMoney  : {{ data['money'] }},
+            earn        : {{ data['earn'] }},
+            invite      : {{ data['invite'] }},
+            totalUsers  : {{ data['total_users'] }},
+            totalSons   : {{ data['total_sons'] }},
+            totalExchange  : {{ data['total_exchange'] }},
+            inputFail   : {{ data['inputFail'] }},
+            activeTime  : parseInt({{ activeTime }}),
+            showPoint   : {{showpoint}},
+            showFlow    : {{data['showflow']}}
+
+//            bound       : 0,
+//            money       : 0,
+//            totalMoney  : 0,
+//            earn        : 0,
+//            invite      : 0,
+//            totalUsers  : 55,
+//            totalSons   : 2,
+//            totalExchange  : 3,
+//            inputFail   : 0,
+//            activeTime  : 10000,
+//            showPoint   : 0,
+//            showFlow    : 0  // 0表示已经领取，１表示没领取, 2表示领取的人数够了
+        }
+
+        $(function() {
+            QL.Main.start('home');
+        });
+    </script>
+</body>
+</html>

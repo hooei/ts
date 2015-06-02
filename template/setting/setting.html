@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>钱鹿--设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script>
+        if(/Version\/8/i.test(navigator.userAgent) && (window.orientation === 0 || window.orientation === 180)) {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=320, user-scalable=0');
+        }
+        else {
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    </script>
+    <meta name="keywords" content="钱鹿,手机赚钱,兼职,网络赚钱,任务奖励,应用">
+    <meta name="description" content="钱鹿是一款让你随时随地做任务赚钱的APP。只要完成指定的简单的小任务，就能获得相应的金钱奖励，可以兑换成金钱钱存进支付宝，也可以充值话费等等。钱鹿希望把用户体验做到极致、给予用户最实在的奖励，成为一个人人信赖的互动平台！">
+    <meta name="author" content="钱鹿">
+    <meta name="renderer" content="webkit">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/destop/icon72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/destop/icon120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/destop/icon144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="512x512" href="/static/images/destop/icon512.png" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <link rel="stylesheet" href="/static/dist/070-common.css"/>
+    <style>
+        .bgc-red { background-color: #e96443; }
+        .border-left { border-left: 3px solid #e75735; }
+        .btn-xs { position: relative; top: -2px; font-size: 8px; padding: 1px 3px; }
+        .username { -webkit-user-select: text; }
+        .list li:active { background-color: #ececec; }
+    </style>
+</head>
+<body class="pt44" id="setting-page">
+    <div class="toolbar">
+        <i class="ctr-btn ctr-left"><a href="/home"> < </a></i>
+        <h1>设置</h1>
+    </div>
+    <div class="banner pb24 bgc-red tac fc-white">
+        <img class="mt12 ml36 mr36 circle avatar" src="{% if data['headimg'] %}{{ data['headimg'] }}{% else %}/static/images/icon_default.png{% end %}" width="64" height="64"/>
+        <p class="mt8 nowrap username">
+            {% if data['username'] %}{{ data['username'] }}(ID：<span class="user-id">{{ data['tid'] }}</span>){% else %}ID：<span class="user-id">{{ data['tid'] }}</span>{% end %}
+        </p>
+    </div>
+    <div class="ui-panel box mt12 ml8 mr8 fs-16 hide">
+        <div class="flex1 flex-fixed box bpc bac mr3 bgc-white border-left pt16 pb16">
+            <a href="/info">
+                修改资料
+            </a>
+        </div>
+        <div class="flex1 flex-fixed box bpc bac ml3 bgc-white border-left pt16 pb16">
+            <div class="flex1 relative tac dib">
+                <a href="{% if data['phone'] %}#{% else %}/phone{% end %}">帐号安全
+                </a>
+                <a class="btn btn-xs btn-success round">{% if data['phone'] %}已{% else %}未{% end %}绑定</a>
+            </div>
+        </div>
+    </div>
+    <div class="ui-panel mt8 p8 fs-14">
+        <ul class="list bgc-white list-border">
+            <li>
+                <a class="box bac" href="/info">
+                    <span>个人资料</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/phone">
+                    <span class="dib box bpl">手机号码</span>
+                    <span class="dib flex1 box bpr bac fs-12 g9">
+                        <span class="flex1 box ml8 mr3 nowrap bpr">
+                            <span class="btn btn-xs btn-success round" style="display: inline-block;">{% if data['phone'] %}已{% else %}未{% end %}绑定</span>
+                        </span>
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ui-panel mt8 p8 fs-14">
+        <ul class="list bgc-white list-border">
+            <li>
+                <a class="box bac" href="/faq">
+                    <span>常见问题</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/contact">
+                    <span>联系我们</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/feedback">
+                    <span>意见反馈</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ui-panel p8 mt8 fs-14 pb12">
+        <ul class="list bgc-white list-border">
+            <li>
+                <a id="install-btn" class="box bac" href="">
+                    <span>更新小助手</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="hide">
+                <a class="box bac" href="">
+                    <span>找回ID</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="box bac" href="/logout">
+                    <span>退出</span>
+                    <span class="flex1 box bpr">
+                        <i class="icon icon-next"></i>
+                    </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <script src="/static/dist/070-common.js"></script>
+    <script>
+        var appUrl= API.strFormat('itms-services://?action=download-manifest&url={0}', API.decode('{{ download_url }}'));
+
+        document.getElementById('install-btn').setAttribute('href', appUrl);
+    </script>
+</body>
+</html>

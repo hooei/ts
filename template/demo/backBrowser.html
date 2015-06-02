@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 360用GCF渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 优先使用最新IE内核,chrome内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 禁止百度转码 -->
+    <script>
+        function onBlur() {
+            document.body.className = 'blurred';
+            alert('blur');
+        };
+        function onFocus(){
+            document.body.className = 'focused';
+            alert('focused');
+        };
+
+        if (/*@cc_on!@*/false) { // check for Internet Explorer
+            document.onfocusin = onFocus;
+            document.onfocusout = onBlur;
+        } else {
+            window.onfocus = onFocus;
+            window.onblur = onBlur;
+        }
+        window.onpageshow = function(evt) {
+            // If persisted then it is in the page cache, force a reload of the page.
+//            if (evt.persisted) {
+                alert('back');
+//            }
+        };
+    </script>
+    <style>
+        .blurred p{
+            color: red;
+        }
+        .focused p {
+            color: blue;
+        }
+    </style>
+</head>
+<body><!-- This does the trick -->
+    <p>1.0.0</p>
+    <a href="testddd://aaa">click me, then press the back button</a>
+    <a href="http://www.pgyer.com/feedback">download</a>
+</body>
+</html>
