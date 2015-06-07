@@ -12,6 +12,12 @@ tar -zxvf PIL-1.1.7.tar.gz
 ```
 sudo apt-get install zlib1g-dev
 sudo apt-get install libfreetype6-dev
+
+
+       sudo apt-get install libjpeg62-dev
+       sudo apt-get install zlib1g-dev
+       sudo apt-get install libfreetype6-dev
+       sudo apt-get install liblcms1-dev
 ```
 修改 setup.py 
 ```
